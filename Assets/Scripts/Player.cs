@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
   int LeftRunesCount;
   float Speed;
   public float MaxSpeed = 15f;
+  public SpriteRenderer SpriteRenderer;
 
   // Allow player to slightly overlap dangerous tiles since otherwise the player might be overlapping a tile
   // however our art is such that it will still look like the art is not touching the player.
@@ -28,6 +29,9 @@ public class Player : MonoBehaviour
   void FixedUpdate()
   {
     Speed = MaxSpeed;
+
+    // Force the player to snap to a tile.
+    SpriteRenderer.flipX = MoveDirection.x > 0;
 
     CharacterController.Move(MoveDirection * Speed * Time.fixedDeltaTime);
   }
