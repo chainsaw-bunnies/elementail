@@ -34,6 +34,11 @@ public class Player : MonoBehaviour
         MoveDirection -= KeyCodeToDirection(key);
       }
     }
+
+    if (Input.GetKeyUp(KeyCode.Escape))
+    {
+      Application.Quit();
+    }
   }
 
   static Vector3 KeyCodeToDirection(KeyCode code)
