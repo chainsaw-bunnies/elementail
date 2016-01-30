@@ -16,8 +16,8 @@ public class Map : MonoBehaviour
 
 	void Start()
   {
-    var player = (GameObject)GameObject.Instantiate(PlayerPrefab, GetPos((Width-1)/2, (Height-1/2)), Quaternion.identity);
-    Camera.main.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, CameraZ);
+    var player = Place(PlayerPrefab, (Width-1)/2, (Height-1)/2);
+    // Camera.main.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, CameraZ);
 
     for (int y = 0; y < Height; y++)
     {
@@ -25,17 +25,17 @@ public class Map : MonoBehaviour
       {
         if (IsEdge(x, y))
         {
-          PlaceTile(WallPrefab, x, y);
+          Place(WallPrefab, x, y);
         }
         else
         {
-          PlaceTile(GroundPrefab, x, y);
+          Place(GroundPrefab, x, y);
         }
       }
     }
 	}
 
-  static GameObject PlaceTile(GameObject prefab, int x, int y)
+  static GameObject Place(GameObject prefab, int x, int y)
   {
     return (GameObject)GameObject.Instantiate(prefab, GetPos(x, y), Quaternion.identity);
   }
