@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
   CharacterController CharacterController;
   HashSet<Ground> CurrentGrounds;
-  Vector3 MoveDirection;
+  KeyCode LastKeyUp;
 
   void Start()
   {
@@ -30,26 +30,35 @@ public class Player : MonoBehaviour
   {
     Speed = MaxSpeed;
 
-    // Force the player to snap to a tile.
-    SpriteRenderer.flipX = MoveDirection.x > 0;
+    var moveDirection = Vector3.zero;
+    switch (LastKeyUp)
+    {
+      case KeyCode.UpArrow:    moveDirection = new Vector3(0f, 1f, 0f);  break;
+      case KeyCode.DownArrow:  moveDirection = new Vector3(0f, -1f, 0f); break;
+      case KeyCode.RightArrow: moveDirection = new Vector3(1f, 0f, 0f);  break;
+      case KeyCode.LeftArrow:  moveDirection = new Vector3(-1f, 0f, 0f); break;
+    }
 
-    CharacterController.Move(MoveDirection * Speed * Time.fixedDeltaTime);
+    // Update the direction you are facing.
+    SpriteRenderer.flipX = moveDirection.x > 0;
+
+    CharacterController.Move(moveDirection * Speed * Time.fixedDeltaTime);
   }
 
   void Update()
   {
+    if (Input.GetKeyUp(KeyCode.Escape))
+    {
+      SceneManager.LoadScene("MainMenu");
+    }
+
     var keys = new[] { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow };
     foreach (var key in keys)
     {
       if (Input.GetKeyUp(key))
       {
-        MoveDirection = KeyCodeToDirection(key);
+        LastKeyUp = key;
       }
-    }
-
-    if (Input.GetKeyUp(KeyCode.Escape))
-    {
-      Application.Quit();
     }
   }
 
@@ -102,16 +111,4 @@ public class Player : MonoBehaviour
   }
 
   #endregion
-
-  static Vector3 KeyCodeToDirection(KeyCode code)
-  {
-    switch (code)
-    {
-      case KeyCode.UpArrow:  return new Vector3(0f, 1f, 0f);
-      case KeyCode.DownArrow:  return new Vector3(0f, -1f, 0f);
-      case KeyCode.RightArrow: return new Vector3(1f, 0f, 0f);
-      case KeyCode.LeftArrow:  return new Vector3(-1f, 0f, 0f);
-    }
-    return Vector3.zero;
-  }
 }
