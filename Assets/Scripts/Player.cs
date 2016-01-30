@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
   int LeftRunesCount;
   float Speed;
-  const float MaxSpeed = 15f;
+  public float MaxSpeed = 15f;
 
   CharacterController CharacterController;
   HashSet<Ground> CurrentGrounds;
