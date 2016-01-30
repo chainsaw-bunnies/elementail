@@ -39,10 +39,10 @@ public class Ground : MonoBehaviour
     other.gameObject.GetComponent<Player>().EnterTile(this);
   }
 
-  void OnTriggerLeave(Collider other)
+  void OnTriggerExit(Collider other)
   {
     if (other.tag != "Player") { return; }
-    other.gameObject.GetComponent<Player>().LeaveTile(this);
+    other.gameObject.GetComponent<Player>().ExitTile(this);
   }
 
   public void ActivateRune()

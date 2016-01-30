@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
   float Speed;
   public float MaxSpeed = 15f;
 
+  // Allow player to slightly overlap dangerous tiles since otherwise the player might be overlapping a tile
+  // however our art is such that it will still look like the art is not touching the player.
+  const float DangerousTileTolerance = 0.5f; 
+
   CharacterController CharacterController;
   HashSet<Ground> CurrentGrounds;
   Vector3 MoveDirection;
@@ -44,16 +48,16 @@ public class Player : MonoBehaviour
     }
   }
 
-  #region Leaving Runes
+  #region Runes
 
   public void EnterTile(Ground ground)
   {
     CurrentGrounds.Add(ground);
   }
 
-  public void LeaveTile(Ground ground)
+  public void ExitTile(Ground ground)
   {
-    CurrentGrounds.Add(ground);
+    CurrentGrounds.Remove(ground);
   }
 
   void LateUpdate()
@@ -65,6 +69,13 @@ public class Player : MonoBehaviour
     foreach (var ground in CurrentGrounds)
     {
       var dist = Vector3.Distance(transform.position, ground.transform.position);
+
+      // Lose
+      if (ground.Dangerous || dist < DangerousTileTolerance)
+      {
+        return;
+      }
+
       if (dist < bestDistance)
       {
         closest = ground;
