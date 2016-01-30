@@ -16,8 +16,7 @@ public class Map : MonoBehaviour
 
 	void Start()
   {
-    var player = Place(PlayerPrefab, (Width-1)/2, (Height-1)/2);
-    // Camera.main.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, CameraZ);
+    Place(PlayerPrefab, (Width-1)/2, (Height-1)/2);
 
     for (int y = 0; y < Height; y++)
     {
