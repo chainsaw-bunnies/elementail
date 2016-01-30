@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
   // Allow player to slightly overlap dangerous tiles since otherwise the player might be overlapping a tile
   // however our art is such that it will still look like the art is not touching the player.
-  const float DangerousTileTolerance = 0.5f; 
+  const float DangerousTileTolerance = 2.75f; 
 
   CharacterController CharacterController;
   HashSet<Ground> CurrentGrounds;
@@ -63,6 +63,11 @@ public class Player : MonoBehaviour
 
   void LateUpdate()
   {
+    if (Mathf.Approximately(0f, MoveDirection.magnitude))
+    {
+      return;
+    }
+
     Ground closest = null;
     float bestDistance = Mathf.Infinity;
 
@@ -72,7 +77,7 @@ public class Player : MonoBehaviour
       var dist = Vector3.Distance(transform.position, ground.transform.position);
 
       // Lose
-      if (ground.Dangerous || dist < DangerousTileTolerance)
+      if (ground.Dangerous && dist < DangerousTileTolerance)
       {
         SceneManager.LoadScene("GameOver");
         return;
