@@ -11,12 +11,12 @@ public class Map : MonoBehaviour
 
   const float CameraZ = -25f;
   const float TileSize = 3f;
-  const int Width = 10;
-  const int Height = 10;
+  const int Width = 25;
+  const int Height = 25;
 
 	void Start()
   {
-    var player = (GameObject)GameObject.Instantiate(PlayerPrefab, GetPos(4, 4), Quaternion.identity);
+    var player = (GameObject)GameObject.Instantiate(PlayerPrefab, GetPos((Width-1)/2, (Height-1/2)), Quaternion.identity);
     Camera.main.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, CameraZ);
 
     for (int y = 0; y < Height; y++)
