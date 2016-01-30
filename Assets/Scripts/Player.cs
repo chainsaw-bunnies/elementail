@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-  public float Speed = 1f;
+  const float Speed = 15f;
 
   CharacterController CharacterController;
   Vector3 MoveDirection;
