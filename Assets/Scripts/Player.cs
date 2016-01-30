@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     CharacterController.Move(MoveDirection * Speed * Time.fixedDeltaTime);
   }
 
-  void Update ()
+  void Update()
   {
     var keys = new[] { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow };
     foreach (var key in keys)
@@ -39,6 +39,18 @@ public class Player : MonoBehaviour
     {
       Application.Quit();
     }
+  }
+
+  public void EnterTile(Ground ground)
+  {
+  }
+
+  public void LeaveTile(Ground ground)
+  {
+  }
+
+  void LateUpdate()
+  {
   }
 
   static Vector3 KeyCodeToDirection(KeyCode code)

@@ -20,6 +20,16 @@ public class Ground : MonoBehaviour
     DustRenderer.enabled = false;
   }
 
+  void OnTriggerEnter(Collider other)
+  {
+    if (other.tag != "Player") { return; }
+  }
+
+  void OnTriggerLeave(Collider other)
+  {
+    if (other.tag != "Player") { return; }
+  }
+
   void OnTriggerStay(Collider other)
   {
     if (other.tag != "Player") { return; }
