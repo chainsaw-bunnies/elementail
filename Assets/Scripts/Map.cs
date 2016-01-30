@@ -22,7 +22,11 @@ public class Map : MonoBehaviour
     {
       for (int x = 0; x < Width; x++)
       {
-        if (IsEdge(x, y))
+        if (x == 5 && y == 5)
+        {
+          Place(RitualPointPrefab, x, y);
+        }
+        else if (IsEdge(x, y))
         {
           Place(WallPrefab, x, y);
         }
