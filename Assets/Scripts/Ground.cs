@@ -3,19 +3,20 @@ using System.Collections;
 
 public class Ground : MonoBehaviour
 {
-  const float DustedMinimumDistance = 2f;
-
   public Sprite[] BaseSprites;
   public Sprite[] RuneSprites;
   public SpriteRenderer GroundRenderer;
   public SpriteRenderer DustRenderer;
-  bool Dusted;
+  public bool Runed
+  {
+    get; private set;
+  }
 
   void Start()
   {
     GroundRenderer.sprite = BaseSprites[Random.Range(0, BaseSprites.Length)];
 
-    Dusted = false;
+    Runed = false;
     DustRenderer.sprite = RuneSprites[Random.Range(0, RuneSprites.Length)];
     DustRenderer.enabled = false;
   }
@@ -23,28 +24,18 @@ public class Ground : MonoBehaviour
   void OnTriggerEnter(Collider other)
   {
     if (other.tag != "Player") { return; }
+    other.gameObject.GetComponent<Player>().EnterTile(this);
   }
 
   void OnTriggerLeave(Collider other)
   {
     if (other.tag != "Player") { return; }
+    other.gameObject.GetComponent<Player>().LeaveTile(this);
   }
 
-  void OnTriggerStay(Collider other)
+  public void ActivateRune()
   {
-    if (other.tag != "Player") { return; }
-
-    if (Dusted)
-    {
-    }
-    else
-    {
-      var distance = Vector3.Distance(other.transform.position, transform.position);
-      if (other.tag == "Player" && distance < DustedMinimumDistance)
-      {
-        Dusted = true;
-        DustRenderer.enabled = true;
-      }
-    }
+    Runed = true;
+    DustRenderer.enabled = true;
   }
 }

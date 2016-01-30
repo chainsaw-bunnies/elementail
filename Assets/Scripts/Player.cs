@@ -1,22 +1,29 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-  const float Speed = 15f;
+  int LeftRunesCount;
+  float Speed;
+  const float MaxSpeed = 15f;
 
   CharacterController CharacterController;
+  HashSet<Ground> CurrentGrounds;
   Vector3 MoveDirection;
 
   void Start()
   {
     CharacterController = GetComponent<CharacterController>();
+    CurrentGrounds = new HashSet<Ground>();
     MoveDirection = Vector3.zero;
   }
 
   void FixedUpdate()
   {
+    Speed = MaxSpeed;
+
     CharacterController.Move(MoveDirection * Speed * Time.fixedDeltaTime);
   }
 
@@ -25,13 +32,9 @@ public class Player : MonoBehaviour
     var keys = new[] { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow };
     foreach (var key in keys)
     {
-      if (Input.GetKeyDown(key))
-      {
-        MoveDirection += KeyCodeToDirection(key);
-      }
       if (Input.GetKeyUp(key))
       {
-        MoveDirection -= KeyCodeToDirection(key);
+        MoveDirection = KeyCodeToDirection(key);
       }
     }
 
@@ -41,17 +44,42 @@ public class Player : MonoBehaviour
     }
   }
 
+  #region Leaving Runes
+
   public void EnterTile(Ground ground)
   {
+    CurrentGrounds.Add(ground);
   }
 
   public void LeaveTile(Ground ground)
   {
+    CurrentGrounds.Add(ground);
   }
 
   void LateUpdate()
   {
+    Ground closest = null;
+    float bestDistance = Mathf.Infinity;
+
+    // Only affect the ground of the tile you overlap with the most.
+    foreach (var ground in CurrentGrounds)
+    {
+      var dist = Vector3.Distance(transform.position, ground.transform.position);
+      if (dist < bestDistance)
+      {
+        closest = ground;
+        bestDistance = dist;
+      }
+    }
+
+    if (closest != null && !closest.Runed)
+    {
+      LeftRunesCount++;
+      closest.ActivateRune();
+    }
   }
+
+  #endregion
 
   static Vector3 KeyCodeToDirection(KeyCode code)
   {
