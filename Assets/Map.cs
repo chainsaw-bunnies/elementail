@@ -4,7 +4,7 @@ using System;
 
 public class Map : MonoBehaviour
 {
-  public GameObject[] GroundPrefabs;
+  public GameObject GroundPrefab;
   public GameObject WallPrefab;
   public GameObject RitualPointPrefab;
   public GameObject PlayerPrefab;
@@ -27,9 +27,10 @@ public class Map : MonoBehaviour
         {
           PlaceTile(WallPrefab, x, y);
         }
-
-        var groundPrefab = GroundPrefabs[UnityEngine.Random.Range(0, GroundPrefabs.Length)];
-        PlaceTile(groundPrefab, x, y);
+        else
+        {
+          PlaceTile(GroundPrefab, x, y);
+        }
       }
     }
 	}
