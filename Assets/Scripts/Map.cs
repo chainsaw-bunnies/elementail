@@ -9,10 +9,10 @@ public class Map : MonoBehaviour
   public GameObject RitualPointPrefab;
   public GameObject PlayerPrefab;
 
-  const float CameraZ = -25f;
-  const float TileSize = 3f;
-  const int Width = 25;
-  const int Height = 25;
+  public const float CameraZ = -25f;
+  public const float TileSize = 3f;
+  public const int Width = 25;
+  public const int Height = 25;
 
 	void Start()
   {

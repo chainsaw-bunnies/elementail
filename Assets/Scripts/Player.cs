@@ -23,13 +23,14 @@ public class Player : MonoBehaviour
   {
     CharacterController = GetComponent<CharacterController>();
     CurrentGrounds = new HashSet<Ground>();
-    MoveDirection = Vector3.zero;
+    LastKeyUp = KeyCode.None;
   }
 
   void FixedUpdate()
   {
     Speed = MaxSpeed;
 
+    var centerPlayer = transform.position + new Vector3(Map.TileSize / 2f, Map.TileSize / 2f);
     var moveDirection = Vector3.zero;
     switch (LastKeyUp)
     {
@@ -38,11 +39,31 @@ public class Player : MonoBehaviour
       case KeyCode.RightArrow: moveDirection = new Vector3(1f, 0f, 0f);  break;
       case KeyCode.LeftArrow:  moveDirection = new Vector3(-1f, 0f, 0f); break;
     }
+    CharacterController.Move(moveDirection * Speed * Time.fixedDeltaTime);
+
+
+    // Cause the player to align to a grid on the axis they are not currently running on.
+    if (LastKeyUp == KeyCode.UpArrow || LastKeyUp == KeyCode.DownArrow)
+    {
+      var desiredX = Mathf.Round(centerPlayer.x / Map.TileSize) * Map.TileSize;
+      var diffX = Mathf.Abs(centerPlayer.x - desiredX);
+      if (!Mathf.Approximately(0f, diffX))
+      {
+        // TODO: correction
+      }
+    }
+    if (LastKeyUp == KeyCode.RightArrow || LastKeyUp == KeyCode.LeftArrow)
+    {
+      var desiredY = Mathf.Round(centerPlayer.y / Map.TileSize) * Map.TileSize;
+      var diffY = Mathf.Abs(centerPlayer.y - desiredY);
+      if (!Mathf.Approximately(0f, diffY))
+      {
+        // TODO: Correction
+      }
+    }
 
     // Update the direction you are facing.
     SpriteRenderer.flipX = moveDirection.x > 0;
-
-    CharacterController.Move(moveDirection * Speed * Time.fixedDeltaTime);
   }
 
   void Update()
@@ -76,7 +97,7 @@ public class Player : MonoBehaviour
 
   void LateUpdate()
   {
-    if (Mathf.Approximately(0f, MoveDirection.magnitude))
+    if (LastKeyUp == KeyCode.None)
     {
       return;
     }
