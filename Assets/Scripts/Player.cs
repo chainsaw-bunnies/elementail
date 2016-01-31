@@ -6,10 +6,10 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+  private Animator bunnyAnimator;
   public CharacterController CharacterController;
   public Image Fade;
   public Map Map;
-  public SpriteRenderer SpriteRenderer;
 
   [Header("Sounds")]
   public AudioSource AttackShort;
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
   void Start()
   {
+    bunnyAnimator = GetComponent<Animator>();
     CurrentGrounds = new HashSet<Ground>();
     CurrentKey = KeyCode.None;
     NextKey = KeyCode.None;
@@ -248,13 +249,11 @@ public class Player : MonoBehaviour
     }
 
     AttackShort.Play();
-    SpriteRenderer.transform.localPosition = new Vector3(0f, Map.PlayerHopAmount, 0f);
     Hopping = true;
   }
 
   public void Unhop(Leaf leaf)
   {
-    SpriteRenderer.transform.localPosition = Vector3.zero;
     Hopping = false;
   }
 
@@ -271,10 +270,23 @@ public class Player : MonoBehaviour
       WalkLoop.Play();
     }
 
-    // Update the direction the sprite is facing if you are moving on the x-axis.
-    if (CurrentDir.x != 0)
+    // Update the direction the sprite is facing.
+    switch (CurrentKey)
     {
-      SpriteRenderer.flipX = CurrentDir.x > 0;
+      case KeyCode.UpArrow:
+        bunnyAnimator.SetInteger("Direction", 0);
+        break;
+      case KeyCode.DownArrow:
+        bunnyAnimator.SetInteger("Direction", 1);
+        break;
+      case KeyCode.LeftArrow:
+        bunnyAnimator.SetInteger("Direction", 2);
+        break;
+      case KeyCode.RightArrow:
+        bunnyAnimator.SetInteger("Direction", 3);
+        break;
+      default:
+        break;
     }
   }
 

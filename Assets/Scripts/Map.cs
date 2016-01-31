@@ -8,7 +8,6 @@ public class Map : MonoBehaviour
   [Header("Permanent Game Tuning")]
   public int CorridorWidth;
   public float FractionOfDecoratedGroundTiles;
-  public float PlayerHopAmount;
   public float RuneTimeUntilDangerous;
   public float PlayerSpeedIncreasePerLeaf;
   public float PlayerStartSpeed;
