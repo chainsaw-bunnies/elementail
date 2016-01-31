@@ -203,4 +203,16 @@ public class Player : MonoBehaviour
   }
 
   #endregion
+
+  #region Leaves
+
+  public void Hop(Leaf leaf)
+  {
+  }
+
+  public void Unhop(Leaf leaf)
+  {
+  }
+
+  #endregion
 }

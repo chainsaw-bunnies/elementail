@@ -34,7 +34,6 @@ public class Ground : MonoBehaviour
     RuneGlowRenderer.color = new Color(1f, 1f, 1f, 0f);
   }
 
-  // TODO: Move to player detecting the collision.
   void OnTriggerEnter(Collider other)
   {
     if (other.tag != "Player") { return; }
