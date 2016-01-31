@@ -18,47 +18,63 @@ public class Player : MonoBehaviour
   CharacterController CharacterController;
   HashSet<Ground> CurrentGrounds;
 
-  float? XGoal;
-  float? YGoal;
-  Vector3 CurrentGoalVelocity;
   KeyCode CurrentKey;
-  Vector3 CurretKeyDir; // Direction based on the last key pressed.
+  KeyCode NextKey;
+
+  Vector3 CurrentDir;
+  Vector3 NextDir;
+
+  Vector3 Goal;
 
   void Start()
   {
     CharacterController = GetComponent<CharacterController>();
     CurrentGrounds = new HashSet<Ground>();
-    CurrentKey = KeyCode.None;
-    CurretKeyDir = Vector3.zero;
 
-    XGoal = null;
-    YGoal = null;
-    CurrentGoalVelocity = Vector3.zero;
+    CurrentKey = KeyCode.None;
+    NextKey = KeyCode.None;
+
+    CurrentDir = Vector3.zero;
+    NextDir = Vector3.zero;
+
+    Goal = transform.position;
   }
 
   void FixedUpdate()
   {
+    // Haven't started moving yet.
+    if (CurrentKey == KeyCode.None)
+    {
+      return;
+    }
+
+    // Move
     Speed = MaxSpeed;
-    CharacterController.Move((CurretKeyDir * Speed * Time.fixedDeltaTime));
+    CharacterController.Move((CurrentDir * Speed * Time.fixedDeltaTime));
 
-    // Cause the player to align to a grid on the axis they are not currently running on.
-    if (XGoal.HasValue)
+    // Check if you passed a goal
+    var passedGoal = false;
+    switch (CurrentKey)
     {
-      var xGoalDiff = Mathf.Abs(transform.position.x - XGoal.Value);
-      if (!Mathf.Approximately(xGoalDiff, 0f))
+      case KeyCode.UpArrow:    passedGoal = transform.position.y >= Goal.y; break;
+      case KeyCode.DownArrow:  passedGoal = transform.position.y <= Goal.y; break;
+      case KeyCode.LeftArrow:  passedGoal = transform.position.x <= Goal.x; break;
+      case KeyCode.RightArrow: passedGoal = transform.position.x >= Goal.x; break;
+    }
+    if (passedGoal)
+    {
+      if (CurrentKey == NextKey)
       {
-        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(XGoal.Value, transform.position.y, 0f), ref CurrentGoalVelocity, 0.01f, Mathf.Infinity, Time.fixedDeltaTime);
+        Goal += CurrentDir * Map.TileSize;
+      }
+      else
+      {
+        CurrentKey = NextKey;
+        CurrentDir = NextDir;
+
+        Goal = GetGoal(CurrentKey);
       }
     }
-    if (YGoal.HasValue)
-    {
-      var yGoalDiff = Mathf.Abs(transform.position.y - YGoal.Value);
-      if (!Mathf.Approximately(yGoalDiff, 0f))
-      {
-        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(transform.position.x, YGoal.Value, 0f), ref CurrentGoalVelocity, 0.01f, Mathf.Infinity, Time.fixedDeltaTime);
-      }
-    }
-
 
     // Update the direction you are facing.
     // SpriteRenderer.flipX = CurretKeyDir.x > 0;
@@ -71,39 +87,34 @@ public class Player : MonoBehaviour
       SceneManager.LoadScene("MainMenu");
     }
 
-    KeyCheck(KeyCode.UpArrow,    new Vector3(0f, 1f, 0f),  KeyCode.LeftArrow, KeyCode.RightArrow, transform.position.x, ref XGoal, ref YGoal);
-    KeyCheck(KeyCode.DownArrow,  new Vector3(0f, -1f, 0f), KeyCode.LeftArrow, KeyCode.RightArrow, transform.position.x, ref XGoal, ref YGoal);
-    KeyCheck(KeyCode.LeftArrow,  new Vector3(-1f, 0f, 0f), KeyCode.DownArrow, KeyCode.UpArrow,    transform.position.y, ref YGoal, ref XGoal);
-    KeyCheck(KeyCode.RightArrow, new Vector3(1f, 0f, 0f),  KeyCode.DownArrow, KeyCode.UpArrow,    transform.position.y, ref YGoal, ref XGoal);
+    KeyCheck(KeyCode.UpArrow,    new Vector3(0f, 1f, 0f));
+    KeyCheck(KeyCode.DownArrow,  new Vector3(0f, -1f, 0f));
+    KeyCheck(KeyCode.LeftArrow,  new Vector3(-1f, 0f, 0f));
+    KeyCheck(KeyCode.RightArrow, new Vector3(1f, 0f, 0f));
   }
-
-  void KeyCheck(KeyCode next, Vector3 nextDir, KeyCode roundDown, KeyCode roundUp, float pos, ref float? Goal, ref float? OtherGoal)
+  
+  void KeyCheck(KeyCode next, Vector3 nextDir)
   {
+    // TODO: deal w/ reversing direction.
+
     if (Input.GetKeyUp(next))
     {
-      if (ChangedAxis(CurrentKey, next))
+      if (CurrentKey == KeyCode.None)
       {
-        if (CurrentKey == roundDown)
-        {
-          OtherGoal = null;
-          Goal = RoundDown(pos, Map.TileSize);
-        }
-        if (CurrentKey == roundUp)
-        {
-          OtherGoal = null;
-          Goal = RoundUp(pos, Map.TileSize);
-        }
-      }
-      CurrentKey = next;
-      CurretKeyDir = nextDir;
-    }
-  }
+        CurrentKey = next;
+        CurrentDir = nextDir;
 
-  static List<KeyCode> XAxisKeys = new List<KeyCode> { KeyCode.LeftArrow, KeyCode.RightArrow };
-  static List<KeyCode> YAxisKeys = new List<KeyCode> { KeyCode.UpArrow, KeyCode.DownArrow };
-  static bool ChangedAxis(KeyCode prev, KeyCode next)
-  {
-    return (XAxisKeys.Contains(prev) && YAxisKeys.Contains(next)) || (XAxisKeys.Contains(next) && YAxisKeys.Contains(prev));
+        NextKey = next;
+        NextDir = nextDir;
+
+        Goal = GetGoal(next);
+      }
+      else
+      {
+        NextKey = next;
+        NextDir = nextDir;
+      }
+    }
   }
 
   static float RoundUp(float value, float multiple)
@@ -121,6 +132,26 @@ public class Player : MonoBehaviour
     return value;
   }
 
+  Vector3 GetGoal(KeyCode key)
+  {
+    var pos = transform.position;
+    switch (key)
+    {
+      case KeyCode.UpArrow:
+        return new Vector3(pos.x, RoundUp(pos.y, Map.TileSize), 0f);
+
+      case KeyCode.DownArrow:
+        return new Vector3(pos.x, RoundDown(pos.y, Map.TileSize), 0f);
+
+      case KeyCode.LeftArrow:
+        return new Vector3(RoundDown(pos.x, Map.TileSize), pos.y, 0f);
+
+      case KeyCode.RightAlt:
+        return new Vector3(RoundUp(pos.x, Map.TileSize), pos.y, 0f);
+    }
+    return Vector3.zero;
+  }
+
   #region Runes
 
   public void EnterTile(Ground ground)
@@ -135,7 +166,7 @@ public class Player : MonoBehaviour
 
   void LateUpdate()
   {
-    if (CurrentKey == KeyCode.None && XGoal == null && YGoal == null)
+    if (CurrentKey == KeyCode.None)
     {
       return;
     }
