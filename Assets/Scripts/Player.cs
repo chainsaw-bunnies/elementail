@@ -229,6 +229,12 @@ public class Player : MonoBehaviour
       ScoreBox.LeftRunes++;
       closest.ActivateRune();
     }
+
+    if (ScoreBox.LeavesRemaining == 0)
+    {
+      Anxious.Play();
+      FadeOut("MainGame");
+    }
   }
 
   #endregion
@@ -246,12 +252,6 @@ public class Player : MonoBehaviour
   {
     SpriteRenderer.transform.localPosition = Vector3.zero;
     Hopping = false;
-
-    if (ScoreBox.LeavesRemaining == 0)
-    {
-      Anxious.Play();
-      FadeOut("MainGame");
-    }
   }
 
   #endregion
