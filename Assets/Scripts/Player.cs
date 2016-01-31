@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
   bool FadingOut;
   float FadeOutTime;
   string FadeCompleteScene;
+  bool Hopping;
 
   void Start()
   {
@@ -104,10 +105,10 @@ public class Player : MonoBehaviour
     if (FadingOut)
     {
       // Delay the fade a little bit.
-      if (Time.time > FadeOutTime + 1f)
+      if (Time.time > FadeOutTime + 1.5f)
       {
         var c = Fade.color;
-        Fade.color = new Color(c.r, c.b, c.g, c.a + 0.0025f * Time.fixedTime);
+        Fade.color = new Color(c.r, c.b, c.g, c.a + 0.002f * Time.fixedTime);
         if (Fade.color.a >= 1f)
         {
           SceneManager.LoadScene(FadeCompleteScene);
@@ -195,7 +196,7 @@ public class Player : MonoBehaviour
 
   void LateUpdate()
   {
-    if (CurrentKey == KeyCode.None || FadingOut)
+    if (CurrentKey == KeyCode.None || FadingOut || Hopping)
     {
       return;
     }
@@ -238,11 +239,13 @@ public class Player : MonoBehaviour
   {
     AttackShort.Play();
     SpriteRenderer.transform.localPosition = new Vector3(0f, Map.PlayerHopAmount, 0f);
+    Hopping = true;
   }
 
   public void Unhop(Leaf leaf)
   {
     SpriteRenderer.transform.localPosition = Vector3.zero;
+    Hopping = false;
 
     if (ScoreBox.LeavesRemaining == 0)
     {
