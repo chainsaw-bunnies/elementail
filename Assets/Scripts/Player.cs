@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
   public CharacterController CharacterController;
   public Image Fade;
   public Map Map;
+  public GameObject PortalPrefab;
 
   [Header("Sounds")]
   public AudioSource AttackShort;
@@ -32,7 +33,6 @@ public class Player : MonoBehaviour
   float FadeOutTime;
   string FadeCompleteScene;
   bool Hopping;
-  bool Won;
 
   void Start()
   {
@@ -109,14 +109,8 @@ public class Player : MonoBehaviour
     if (FadingOut)
     {
       // Delay the fade a little bit.
-      if (Time.time > FadeOutTime + 1.5f)
+      if (Time.time > FadeOutTime + 0.5f)
       {
-        if (!WinAnimationStarted)
-        {
-          WinAnimationStarted = true;
-          Win.Play();
-        }
-
         var c = Fade.color;
         Fade.color = new Color(c.r, c.b, c.g, c.a + 0.002f * Time.fixedTime);
         if (Fade.color.a >= 1f)
@@ -132,8 +126,6 @@ public class Player : MonoBehaviour
     KeyCheck(KeyCode.LeftArrow,  new Vector3(-1f, 0f, 0f));
     KeyCheck(KeyCode.RightArrow, new Vector3(1f, 0f, 0f));
   }
-
-  bool WinAnimationStarted = false;
 
   void KeyCheck(KeyCode next, Vector3 nextDir)
   {
@@ -245,7 +237,8 @@ public class Player : MonoBehaviour
     if (ScoreBox.LeavesRemaining == 0)
     {
       Happy.Play();
-      Won = true;
+      Win.Play();
+      Instantiate(PortalPrefab, transform.position, Quaternion.identity);
       FadeOut("MainGame");
     }
   }
