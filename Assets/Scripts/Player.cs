@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+  public CharacterController CharacterController;
+  public Image Fade;
   public Map Map;
-
-  float Speed;
   public SpriteRenderer SpriteRenderer;
 
   [Header("Sounds")]
@@ -17,34 +17,36 @@ public class Player : MonoBehaviour
   public AudioSource IdleLoop;
   public AudioSource WalkLoop;
 
-  CharacterController CharacterController;
   HashSet<Ground> CurrentGrounds;
-
   KeyCode CurrentKey;
   KeyCode NextKey;
-
   Vector3 CurrentDir;
   Vector3 NextDir;
-
   Vector3 Goal;
+  float Speed;
+  bool FadingOut;
+  float FadeOutTime;
+  string FadeCompleteScene;
 
   void Start()
   {
-    CharacterController = GetComponent<CharacterController>();
     CurrentGrounds = new HashSet<Ground>();
-
     CurrentKey = KeyCode.None;
     NextKey = KeyCode.None;
-
     CurrentDir = Vector3.zero;
     NextDir = Vector3.zero;
-
     Goal = transform.position;
+    FadingOut = false;
+    FadeCompleteScene = null;
   }
 
   void FixedUpdate()
   {
-    // Haven't started moving yet.
+    if (FadingOut)
+    {
+      SilentIdling();
+      return;
+    }
     if (CurrentKey == KeyCode.None)
     {
       Idling();
@@ -96,6 +98,21 @@ public class Player : MonoBehaviour
     if (Input.GetKeyUp(KeyCode.Escape))
     {
       SceneManager.LoadScene("MainMenu");
+    }
+
+    if (FadingOut)
+    {
+      // Delay the fade a little bit.
+      if (Time.time > FadeOutTime + 1f)
+      {
+        var c = Fade.color;
+        Fade.color = new Color(c.r, c.b, c.g, c.a + 0.0025f * Time.fixedTime);
+        if (Fade.color.a >= 1f)
+        {
+          SceneManager.LoadScene(FadeCompleteScene);
+        }
+      }
+      return;
     }
 
     KeyCheck(KeyCode.UpArrow,    new Vector3(0f, 1f, 0f));
@@ -177,7 +194,7 @@ public class Player : MonoBehaviour
 
   void LateUpdate()
   {
-    if (CurrentKey == KeyCode.None)
+    if (CurrentKey == KeyCode.None || FadingOut)
     {
       return;
     }
@@ -194,7 +211,7 @@ public class Player : MonoBehaviour
       if (ground.Dangerous)
       {
         Damage.Play();
-        SceneManager.LoadScene("GameOver");
+        FadeOut("GameOver");
         return;
       }
 
@@ -257,5 +274,24 @@ public class Player : MonoBehaviour
     {
       WalkLoop.Stop();
     }
+  }
+
+  void SilentIdling()
+  {
+    if (IdleLoop.isPlaying)
+    {
+      IdleLoop.Stop();
+    }
+    if (WalkLoop.isPlaying)
+    {
+      WalkLoop.Stop();
+    }
+  }
+
+  void FadeOut(string fadeCompleteScene)
+  {
+    FadeOutTime = Time.time;
+    FadingOut = true;
+    FadeCompleteScene = fadeCompleteScene;
   }
 }

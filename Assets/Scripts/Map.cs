@@ -62,6 +62,11 @@ public class Map : MonoBehaviour
       int index = UnityEngine.Random.Range(0, allCoords.Count - 1);
       string toSplit = allCoords[index];
 
+      if (!IsEmptyAndAvailable(toSplit))
+      {
+        continue;
+      }
+
       string[] coords = toSplit.Split(new Char[] { '|' });
       int x = Convert.ToInt32(coords[0], 10);
       //Int32.TryParse(coords[0], x);
