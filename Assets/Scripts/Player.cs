@@ -6,15 +6,16 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-  int LeftRunesCount;
+  public Map Map;
+
   float Speed;
-  public float HopAmount;
-  public float MaxSpeed;
   public SpriteRenderer SpriteRenderer;
 
-  // Allow player to slightly overlap dangerous tiles since otherwise the player might be overlapping a tile
-  // however our art is such that it will still look like the art is not touching the player.
-  const float DangerousTileTolerance = 2.75f; 
+  [Header("Sounds")]
+  public AudioSource AttackShort;
+  public AudioSource Damage;
+  public AudioSource IdleLoop;
+  public AudioSource WalkLoop;
 
   CharacterController CharacterController;
   HashSet<Ground> CurrentGrounds;
@@ -46,11 +47,12 @@ public class Player : MonoBehaviour
     // Haven't started moving yet.
     if (CurrentKey == KeyCode.None)
     {
+      Idling();
       return;
     }
 
     // Move
-    Speed = MaxSpeed;
+    Speed = Map.PlayerMaxSpeed;
 
     var prevPos = transform.position;
     CharacterController.Move((CurrentDir * Speed * Time.fixedDeltaTime));
@@ -79,8 +81,14 @@ public class Player : MonoBehaviour
       }
     }
 
-    // Update the direction you are facing.
-    // SpriteRenderer.flipX = CurretKeyDir.x > 0;
+    if (stuck || CurrentDir == Vector3.zero)
+    {
+      Idling();
+    }
+    else
+    {
+      Running();
+    }
   }
 
   void Update()
@@ -183,8 +191,9 @@ public class Player : MonoBehaviour
       var dist = Vector3.Distance(transform.position, ground.transform.position);
 
       // Lose
-      if (ground.Dangerous && dist < DangerousTileTolerance)
+      if (ground.Dangerous)
       {
+        Damage.Play();
         SceneManager.LoadScene("GameOver");
         return;
       }
@@ -198,7 +207,7 @@ public class Player : MonoBehaviour
 
     if (closest != null && !closest.Runed)
     {
-      LeftRunesCount++;
+      ScoreBox.LeftRunes++;
       closest.ActivateRune();
     }
   }
@@ -209,7 +218,8 @@ public class Player : MonoBehaviour
 
   public void Hop(Leaf leaf)
   {
-    SpriteRenderer.transform.localPosition = new Vector3(0f, HopAmount, 0f);
+    AttackShort.Play();
+    SpriteRenderer.transform.localPosition = new Vector3(0f, Map.PlayerHopAmount, 0f);
   }
 
   public void Unhop(Leaf leaf)
@@ -218,4 +228,34 @@ public class Player : MonoBehaviour
   }
 
   #endregion
+
+  void Running()
+  {
+    if (IdleLoop.isPlaying)
+    {
+      IdleLoop.Stop();
+    }
+    if (!WalkLoop.isPlaying)
+    {
+      WalkLoop.Play();
+    }
+
+    // Update the direction the sprite is facing if you are moving on the x-axis.
+    if (CurrentDir.x != 0)
+    {
+      SpriteRenderer.flipX = CurrentDir.x > 0;
+    }
+  }
+
+  void Idling()
+  {
+    if (!IdleLoop.isPlaying)
+    {
+      IdleLoop.Play();
+    }
+    if (WalkLoop.isPlaying)
+    {
+      WalkLoop.Stop();
+    }
+  }
 }

@@ -10,6 +10,9 @@ public class Map : MonoBehaviour
   public int FloorsizeFactor;
   public float FractionOfDecoratedGroundTiles;
   public int NumberOfLeaves;
+  public float PlayerHopAmount;
+  public float PlayerMaxSpeed;
+  public float RuneTimeUntilDangerous;
 
   [Header("Prefabs")]
   public GameObject GroundPrefab;
@@ -94,10 +97,13 @@ public class Map : MonoBehaviour
 
 
         Tiles[coord] = Place(GroundPrefab, x, y);
-        Tiles[coord].GetComponent<Ground>().IsDecorated = UnityEngine.Random.value < FractionOfDecoratedGroundTiles;
+        var ground = Tiles[coord].GetComponent<Ground>();
+        ground.IsDecorated = UnityEngine.Random.value < FractionOfDecoratedGroundTiles;
+        ground.Map = this;
       }
     }
 
+    ScoreBox.LeftRunes = 0;
     ScoreBox.LeavesRemaining = NumberOfLeaves;
   }
 

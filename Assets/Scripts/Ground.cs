@@ -8,7 +8,6 @@ public class Ground : MonoBehaviour
   public Sprite[] NoGlowRuneSprites;
   public Sprite[] YellowGlowRuneSprites;
   public Sprite[] RedGlowRuneSprites;
-  public float DangerTime;
 
   int SpriteIndex;
 
@@ -22,6 +21,9 @@ public class Ground : MonoBehaviour
 
   [HideInInspector]
   public bool IsDecorated;
+
+  [HideInInspector]
+  public Map Map;
 
   void Start()
   {
@@ -85,7 +87,7 @@ public class BecomeDangerous : MonoBehaviour
   void Update()
   {
     var elapsed = Time.time - StartTime;
-    var elapsedPct = elapsed / Ground.DangerTime;
+    var elapsedPct = elapsed / Ground.Map.RuneTimeUntilDangerous;
 
     Ground.RuneGlowRenderer.color = new Color(1f, 1f, 1f, elapsedPct);
 
