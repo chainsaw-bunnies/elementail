@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
 
   void Update()
   {
-    if (Input.GetKeyUp(KeyCode.Escape))
+    if (Input.GetKeyDown(KeyCode.Escape))
     {
       SceneManager.LoadScene("MainMenu");
     }
@@ -127,7 +127,7 @@ public class Player : MonoBehaviour
   {
     // TODO: deal w/ reversing direction.
 
-    if (Input.GetKeyUp(next))
+    if (Input.GetKeyDown(next))
     {
       if (CurrentKey == KeyCode.None)
       {
