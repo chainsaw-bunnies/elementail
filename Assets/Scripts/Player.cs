@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
   [Header("Sounds")]
   public AudioSource AttackShort;
+  public AudioSource Anxious;
   public AudioSource Damage;
   public AudioSource IdleLoop;
   public AudioSource WalkLoop;
@@ -242,6 +243,12 @@ public class Player : MonoBehaviour
   public void Unhop(Leaf leaf)
   {
     SpriteRenderer.transform.localPosition = Vector3.zero;
+
+    if (ScoreBox.LeavesRemaining == 0)
+    {
+      Anxious.Play();
+      FadeOut("MainGame");
+    }
   }
 
   #endregion

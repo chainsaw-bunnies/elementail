@@ -17,7 +17,6 @@ public class Leaf : MonoBehaviour
   void OnTriggerExit(Collider other)
   {
     if (other.tag != "Player") { return; }
-    other.gameObject.GetComponent<Player>().Unhop(this);
 
     if (!Activated)
     {
@@ -25,6 +24,8 @@ public class Leaf : MonoBehaviour
       SpriteRenderer.sprite = ActivatedSprite;
       ScoreBox.LeavesRemaining--;
     }
+
+    other.gameObject.GetComponent<Player>().Unhop(this);
   }
 
 }

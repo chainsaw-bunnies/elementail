@@ -11,6 +11,16 @@ public class ScoreBox : MonoBehaviour
 
   void Update()
   {
-    Text.text = "Leaves Remaining: " + LeavesRemaining;
+    string leavesText;
+    if (LeavesRemaining > 0)
+    {
+      leavesText = "Hop " + LeavesRemaining + " Leaves";
+    }
+    else
+    {
+      leavesText = "Ritual Completed!";
+    }
+
+    Text.text = leavesText;
   }
 }

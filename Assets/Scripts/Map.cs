@@ -31,6 +31,8 @@ public class Map : MonoBehaviour
   {
     // Put the player in the center of the map.
     Player.transform.position = new Vector3((Width - 1) / 2 * TileSize, (Height - 1) / 2 * TileSize, 0f);
+    ScoreBox.LeftRunes = 0;
+    ScoreBox.LeavesRemaining = 0;
 
     Tiles = new Dictionary<string, GameObject>();
     for (int y = 0; y < Height; y++)
@@ -62,11 +64,6 @@ public class Map : MonoBehaviour
       int index = UnityEngine.Random.Range(0, allCoords.Count - 1);
       string toSplit = allCoords[index];
 
-      if (!IsEmptyAndAvailable(toSplit))
-      {
-        continue;
-      }
-
       string[] coords = toSplit.Split(new Char[] { '|' });
       int x = Convert.ToInt32(coords[0], 10);
       //Int32.TryParse(coords[0], x);
@@ -79,9 +76,10 @@ public class Map : MonoBehaviour
       adjacentCoords.Add(x.ToString() + "|" + ((int)(y + 1)).ToString());
       adjacentCoords.Add(x.ToString() + "|" + ((int)(y - 1)).ToString());
 
-      if (IsEmptyAndAvailable(adjacentCoords[0]) && IsEmptyAndAvailable(adjacentCoords[1]) && IsEmptyAndAvailable(adjacentCoords[2]) && IsEmptyAndAvailable(adjacentCoords[3]))
+      if (IsEmptyAndAvailable(toSplit) && IsEmptyAndAvailable(adjacentCoords[0]) && IsEmptyAndAvailable(adjacentCoords[1]) && IsEmptyAndAvailable(adjacentCoords[2]) && IsEmptyAndAvailable(adjacentCoords[3]))
       {
         Tiles[toSplit] = Place(LeafPrefab, x, y);
+        ScoreBox.LeavesRemaining++;
       }
       else
       {
@@ -107,9 +105,6 @@ public class Map : MonoBehaviour
         ground.Map = this;
       }
     }
-
-    ScoreBox.LeftRunes = 0;
-    ScoreBox.LeavesRemaining = NumberOfLeaves;
   }
 
   GameObject Place(GameObject prefab, int x, int y)
