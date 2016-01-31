@@ -15,8 +15,11 @@ public class Player : MonoBehaviour
   public AudioSource AttackShort;
   public AudioSource Anxious;
   public AudioSource Damage;
+  public AudioSource Happy;
   public AudioSource IdleLoop;
+  public AudioSource Impact;
   public AudioSource WalkLoop;
+  public AudioSource Win;
 
   HashSet<Ground> CurrentGrounds;
   KeyCode CurrentKey;
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
   float FadeOutTime;
   string FadeCompleteScene;
   bool Hopping;
+  bool Won;
 
   void Start()
   {
@@ -107,6 +111,12 @@ public class Player : MonoBehaviour
       // Delay the fade a little bit.
       if (Time.time > FadeOutTime + 1.5f)
       {
+        if (!WinAnimationStarted)
+        {
+          WinAnimationStarted = true;
+          Win.Play();
+        }
+
         var c = Fade.color;
         Fade.color = new Color(c.r, c.b, c.g, c.a + 0.002f * Time.fixedTime);
         if (Fade.color.a >= 1f)
@@ -122,7 +132,9 @@ public class Player : MonoBehaviour
     KeyCheck(KeyCode.LeftArrow,  new Vector3(-1f, 0f, 0f));
     KeyCheck(KeyCode.RightArrow, new Vector3(1f, 0f, 0f));
   }
-  
+
+  bool WinAnimationStarted = false;
+
   void KeyCheck(KeyCode next, Vector3 nextDir)
   {
     // TODO: deal w/ reversing direction.
@@ -232,7 +244,8 @@ public class Player : MonoBehaviour
 
     if (ScoreBox.LeavesRemaining == 0)
     {
-      Anxious.Play();
+      Happy.Play();
+      Won = true;
       FadeOut("MainGame");
     }
   }
@@ -254,6 +267,7 @@ public class Player : MonoBehaviour
 
   public void Unhop(Leaf leaf)
   {
+    Impact.Play();
     Hopping = false;
   }
 
