@@ -10,8 +10,8 @@ public class Map : MonoBehaviour
   public int NumberOfLeaves;
   public GameObject GroundPrefab;
   public GameObject LeafPrefab;
-  public GameObject PlayerPrefab;
   public GameObject WallPrefab;
+  public GameObject Player;
 
   public int Width { get { return FloorsizeFactor; } }
   public int Height { get { return FloorsizeFactor; } }
@@ -23,7 +23,7 @@ public class Map : MonoBehaviour
   void Start()
   {
     // Put the player in the center of the map.
-    Place(PlayerPrefab, (Width - 1) / 2, (Height - 1) / 2);
+    Player.transform.position = new Vector3((Width - 1) / 2 * TileSize, (Height - 1) / 2 * TileSize, 0f);
 
     Tiles = new Dictionary<string, GameObject>();
     for (int y = 0; y < Height; y++)
@@ -86,6 +86,8 @@ public class Map : MonoBehaviour
         Tiles[coord] = Place(GroundPrefab, x, y);
       }
     }
+
+    ScoreBox.LeavesRemaining = NumberOfLeaves;
   }
 
   GameObject Place(GameObject prefab, int x, int y)
