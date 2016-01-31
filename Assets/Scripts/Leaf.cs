@@ -23,6 +23,7 @@ public class Leaf : MonoBehaviour
       Activated = true;
       SpriteRenderer.sprite = ActivatedSprite;
       ScoreBox.LeavesRemaining--;
+      ScoreBox.Score += 100 * ScoreBox.Level;
     }
 
     other.gameObject.GetComponent<Player>().Unhop(this);

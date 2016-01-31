@@ -14,14 +14,15 @@ public class ScoreBox : MonoBehaviour
   void Update()
   {
     string levelText = "Level " + Level; 
-    string leavesText = "Rituals: " + (LeavesRemaining == 0 ? "Complete" : LeavesRemaining.ToString() + " Left");
-    string scoreText = "Points: " + Score;
+    string leavesText = "Rituals: " + (LeavesRemaining == 0 ? "Done" : LeavesRemaining.ToString());
+    string scoreText = "Points: " + (Score > 1000000 ? "Wow." : Score.ToString("N0"));
 
     Text.text = string.Join("\r\n", new[] { levelText, leavesText, scoreText });
   }
 
   public static void ResetLevel()
   {
+    Score = 0;
     Level = 0;
   }
 
