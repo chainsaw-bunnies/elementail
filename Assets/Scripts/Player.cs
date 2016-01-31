@@ -307,6 +307,7 @@ public class Player : MonoBehaviour
     {
       WalkLoop.Stop();
     }
+    bunnyAnimator.SetInteger("Direction", 4);
   }
 
   void SilentIdling()
@@ -319,6 +320,7 @@ public class Player : MonoBehaviour
     {
       WalkLoop.Stop();
     }
+    bunnyAnimator.SetInteger("Direction", 4);
   }
 
   void FadeOut(string fadeCompleteScene)
