@@ -14,6 +14,11 @@ public class LoadScene : MonoBehaviour
 		SceneManager.LoadScene(sceneName);
 	}
 
+  public void ResetLevel()
+  {
+    ScoreBox.ResetLevel();
+  }
+
   public void Quit()
   {
     Application.Quit();

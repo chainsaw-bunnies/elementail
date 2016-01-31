@@ -5,14 +5,21 @@ using System.Collections.Generic;
 
 public class Map : MonoBehaviour
 {
-  [Header("Game Tuning")]
+  [Header("Permanent Game Tuning")]
   public int CorridorWidth;
-  public int FloorsizeFactor;
   public float FractionOfDecoratedGroundTiles;
-  public int NumberOfLeaves;
   public float PlayerHopAmount;
-  public float PlayerMaxSpeed;
   public float RuneTimeUntilDangerous;
+  public float PlayerSpeedIncreasePerLeaf;
+  public float PlayerStartSpeed;
+
+  [Header("Level 1 Tuning")]
+  public int Level1FloorsizeFactor;
+  public int Level1NumberOfLeaves;
+
+  [Header("Next Level Tuning")]
+  public int FloorsizeFactorIncreasePerLevel;
+  public int LeafIncreasePerLevel;
 
   [Header("Prefabs")]
   public GameObject GroundPrefab;
@@ -20,8 +27,15 @@ public class Map : MonoBehaviour
   public GameObject WallPrefab;
   public GameObject Player;
 
-  public int Width { get { return FloorsizeFactor; } }
-  public int Height { get { return FloorsizeFactor; } }
+  [HideInInspector]
+  public int CurrentFloorsizeFactor;
+  [HideInInspector]
+  public int CurrentNumberOfLeaves;
+
+  [HideInInspector]
+  public int Width;
+  [HideInInspector]
+  public int Height;
 
   public Dictionary<string, GameObject> Tiles;
 
@@ -29,6 +43,11 @@ public class Map : MonoBehaviour
 
   void Start()
   {
+    ScoreBox.NextLevel(this);
+
+    Width = CurrentFloorsizeFactor;
+    Height = CurrentFloorsizeFactor;
+
     // Put the player in the center of the map.
     Player.transform.position = new Vector3((Width - 1) / 2 * TileSize, (Height - 1) / 2 * TileSize, 0f);
     ScoreBox.LeftRunes = 0;
@@ -59,7 +78,7 @@ public class Map : MonoBehaviour
       }
     }
     var allCoords = new List<string>(Tiles.Keys);
-    for (int i = 0; i < NumberOfLeaves; i++)
+    for (int i = 0; i < CurrentNumberOfLeaves; i++)
     {
       int index = UnityEngine.Random.Range(0, allCoords.Count - 1);
       string toSplit = allCoords[index];
@@ -117,7 +136,7 @@ public class Map : MonoBehaviour
     int xDist = Math.Abs(x - (Width - 1) / 2);
     int yDist = Math.Abs(y - (Height - 1) / 2);
     int totalDist = xDist + yDist;
-    return totalDist >= Math.Floor(.5 * FloorsizeFactor + UnityEngine.Random.Range(0, 2)) - 2;
+    return totalDist >= Math.Floor(.5 * CurrentFloorsizeFactor + UnityEngine.Random.Range(0, 2)) - 2;
   }
 
   bool IsGoodSpotForObstacle(int x, int y)

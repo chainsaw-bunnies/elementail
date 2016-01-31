@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     CurrentDir = Vector3.zero;
     NextDir = Vector3.zero;
     Goal = transform.position;
+    Speed = Map.PlayerStartSpeed;
     FadingOut = false;
     FadeCompleteScene = null;
   }
@@ -56,8 +57,6 @@ public class Player : MonoBehaviour
     }
 
     // Move
-    Speed = Map.PlayerMaxSpeed;
-
     var prevPos = transform.position;
     CharacterController.Move((CurrentDir * Speed * Time.fixedDeltaTime));
     var stuck = Vector3.Distance(transform.position, prevPos) < (Speed * Time.fixedDeltaTime) / 10f;
@@ -243,6 +242,11 @@ public class Player : MonoBehaviour
 
   public void Hop(Leaf leaf)
   {
+    if (!leaf.Activated)
+    {
+      Speed += Map.PlayerSpeedIncreasePerLeaf;
+    }
+
     AttackShort.Play();
     SpriteRenderer.transform.localPosition = new Vector3(0f, Map.PlayerHopAmount, 0f);
     Hopping = true;
