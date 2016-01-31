@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 {
   int LeftRunesCount;
   float Speed;
-  public float MaxSpeed = 15f;
+  public float HopAmount;
+  public float MaxSpeed;
   public SpriteRenderer SpriteRenderer;
 
   // Allow player to slightly overlap dangerous tiles since otherwise the player might be overlapping a tile
@@ -208,10 +209,12 @@ public class Player : MonoBehaviour
 
   public void Hop(Leaf leaf)
   {
+    SpriteRenderer.transform.localPosition = new Vector3(0f, HopAmount, 0f);
   }
 
   public void Unhop(Leaf leaf)
   {
+    SpriteRenderer.transform.localPosition = Vector3.zero;
   }
 
   #endregion
