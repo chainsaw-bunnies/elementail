@@ -5,9 +5,13 @@ using System.Collections.Generic;
 
 public class Map : MonoBehaviour
 {
+  [Header("Game Tuning")]
   public int CorridorWidth;
   public int FloorsizeFactor;
+  public float FractionOfDecoratedGroundTiles;
   public int NumberOfLeaves;
+
+  [Header("Prefabs")]
   public GameObject GroundPrefab;
   public GameObject LeafPrefab;
   public GameObject WallPrefab;
@@ -87,7 +91,10 @@ public class Map : MonoBehaviour
         //Int32.TryParse(coords[0], x);
         int y = Convert.ToInt32(coords[1], 10);
         //Int32.TryParse(coords[1], y);
+
+
         Tiles[coord] = Place(GroundPrefab, x, y);
+        Tiles[coord].GetComponent<Ground>().IsDecorated = UnityEngine.Random.value < FractionOfDecoratedGroundTiles;
       }
     }
 

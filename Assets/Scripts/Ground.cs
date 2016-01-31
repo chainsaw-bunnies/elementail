@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Ground : MonoBehaviour
 {
-  public Sprite[] BaseSprites;
+  public Sprite PlainSprite;
+  public Sprite[] DecoratedSprites;
   public Sprite[] NoGlowRuneSprites;
   public Sprite[] YellowGlowRuneSprites;
   public Sprite[] RedGlowRuneSprites;
@@ -19,9 +20,19 @@ public class Ground : MonoBehaviour
   public bool Runed { get; private set; }
   public bool Dangerous { get; private set; }
 
+  [HideInInspector]
+  public bool IsDecorated;
+
   void Start()
   {
-    GroundRenderer.sprite = BaseSprites[Random.Range(0, BaseSprites.Length)];
+    if (IsDecorated)
+    {
+      GroundRenderer.sprite = DecoratedSprites[Random.Range(0, DecoratedSprites.Length)];
+    }
+    else
+    {
+      GroundRenderer.sprite = PlainSprite;
+    }
 
     Dangerous = false;
     Runed = false;
