@@ -7,6 +7,7 @@ public class Ground : MonoBehaviour
   public Sprite[] NoGlowRuneSprites;
   public Sprite[] YellowGlowRuneSprites;
   public Sprite[] RedGlowRuneSprites;
+  public float DangerTime;
 
   int SpriteIndex;
 
@@ -33,6 +34,7 @@ public class Ground : MonoBehaviour
     RuneGlowRenderer.color = new Color(1f, 1f, 1f, 0f);
   }
 
+  // TODO: Move to player detecting the collision.
   void OnTriggerEnter(Collider other)
   {
     if (other.tag != "Player") { return; }
@@ -64,7 +66,6 @@ public class BecomeDangerous : MonoBehaviour
 {
   public Ground Ground;
   float StartTime;
-  const float DangerTime = 100f;
 
   void Start()
   {
@@ -74,7 +75,7 @@ public class BecomeDangerous : MonoBehaviour
   void Update()
   {
     var elapsed = Time.time - StartTime;
-    var elapsedPct = elapsed / DangerTime;
+    var elapsedPct = elapsed / Ground.DangerTime;
 
     Ground.RuneGlowRenderer.color = new Color(1f, 1f, 1f, elapsedPct);
 

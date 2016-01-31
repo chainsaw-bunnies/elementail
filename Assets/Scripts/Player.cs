@@ -50,7 +50,10 @@ public class Player : MonoBehaviour
 
     // Move
     Speed = MaxSpeed;
+
+    var prevPos = transform.position;
     CharacterController.Move((CurrentDir * Speed * Time.fixedDeltaTime));
+    var stuck = Vector3.Distance(transform.position, prevPos) < (Speed * Time.fixedDeltaTime) / 10f;
 
     // Check if you passed a goal
     var passedGoal = false;
@@ -61,7 +64,7 @@ public class Player : MonoBehaviour
       case KeyCode.LeftArrow:  passedGoal = transform.position.x <= Goal.x; break;
       case KeyCode.RightArrow: passedGoal = transform.position.x >= Goal.x; break;
     }
-    if (passedGoal)
+    if (passedGoal || stuck)
     {
       if (CurrentKey == NextKey)
       {
@@ -71,7 +74,6 @@ public class Player : MonoBehaviour
       {
         CurrentKey = NextKey;
         CurrentDir = NextDir;
-
         Goal = GetGoal(CurrentKey);
       }
     }
