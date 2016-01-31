@@ -230,6 +230,7 @@ public class Player : MonoBehaviour
 
     if (closest != null && !closest.Runed)
     {
+      ScoreBox.Score += 10;
       ScoreBox.LeftRunes++;
       closest.ActivateRune();
     }
