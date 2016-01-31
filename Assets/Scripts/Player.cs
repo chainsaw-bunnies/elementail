@@ -228,19 +228,18 @@ public class Player : MonoBehaviour
       }
     }
 
-    if (closest != null && !closest.Runed)
-    {
-      ScoreBox.Score += 10;
-      ScoreBox.LeftRunes++;
-      closest.ActivateRune();
-    }
-
     if (ScoreBox.LeavesRemaining == 0)
     {
       Happy.Play();
       Win.Play();
       Instantiate(PortalPrefab, transform.position, Quaternion.identity);
       FadeOut("MainGame");
+    }
+    else if (closest != null && !closest.Runed)
+    {
+      ScoreBox.Score += 10;
+      ScoreBox.LeftRunes++;
+      closest.ActivateRune();
     }
   }
 
