@@ -45,6 +45,13 @@ public class Ground : MonoBehaviour
     RuneGlowRenderer.sprite = YellowGlowRuneSprites[SpriteIndex];
     RuneGlowRenderer.enabled = false;
     RuneGlowRenderer.color = new Color(1f, 1f, 1f, 0f);
+
+    // Randomly rotate the rune.
+    var runeRotation = Random.Range(0f, 360f);
+    foreach (var renderer in new[] { RuneRenderer, RuneGlowRenderer })
+    {
+      renderer.transform.rotation = Quaternion.Euler(0f, 0f, runeRotation);
+    }
   }
 
   void OnTriggerEnter(Collider other)
