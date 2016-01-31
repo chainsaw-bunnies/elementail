@@ -21,6 +21,7 @@ public class Map : MonoBehaviour
   public int LeafIncreasePerLevel;
 
   [Header("Prefabs")]
+  public GameObject CarrotPrefab;
   public GameObject GroundPrefab;
   public GameObject LeafPrefab;
   public GameObject WallPrefab;
@@ -30,6 +31,8 @@ public class Map : MonoBehaviour
   public int CurrentFloorsizeFactor;
   [HideInInspector]
   public int CurrentNumberOfLeaves;
+  [HideInInspector]
+  public int CurrentCarrots;
 
   [HideInInspector]
   public int Width;
@@ -76,8 +79,19 @@ public class Map : MonoBehaviour
         }
       }
     }
+
+    var prefabsToAdd = new Queue<GameObject>();
+    for (int i = 0; i<CurrentNumberOfLeaves; i++)
+    {
+      prefabsToAdd.Enqueue(LeafPrefab);
+    }
+    for (int i = 0; i<CurrentCarrots; i++)
+    {
+      prefabsToAdd.Enqueue(CarrotPrefab);
+    }
+
     var allCoords = new List<string>(Tiles.Keys);
-    for (int i = 0; i < CurrentNumberOfLeaves; i++)
+    while (prefabsToAdd.Count > 0)
     {
       int index = UnityEngine.Random.Range(0, allCoords.Count - 1);
       string toSplit = allCoords[index];
@@ -96,12 +110,12 @@ public class Map : MonoBehaviour
 
       if (IsEmptyAndAvailable(toSplit) && IsEmptyAndAvailable(adjacentCoords[0]) && IsEmptyAndAvailable(adjacentCoords[1]) && IsEmptyAndAvailable(adjacentCoords[2]) && IsEmptyAndAvailable(adjacentCoords[3]))
       {
-        Tiles[toSplit] = Place(LeafPrefab, x, y);
-        ScoreBox.LeavesRemaining++;
-      }
-      else
-      {
-        i--;
+        var prefab = prefabsToAdd.Dequeue();
+        Tiles[toSplit] = Place(prefab, x, y);
+        if (prefab.GetComponent<Leaf>() != null)
+        {
+          ScoreBox.LeavesRemaining++;
+        }
       }
     }
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-  private Animator bunnyAnimator;
+  private Animator Animator;
   public CharacterController CharacterController;
   public Image Fade;
   public Map Map;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
   void Start()
   {
-    bunnyAnimator = GetComponent<Animator>();
+    Animator = GetComponent<Animator>();
     CurrentGrounds = new HashSet<Ground>();
     CurrentKey = KeyCode.None;
     NextKey = KeyCode.None;
@@ -281,16 +281,16 @@ public class Player : MonoBehaviour
     switch (CurrentKey)
     {
       case KeyCode.UpArrow:
-        bunnyAnimator.SetInteger("Direction", 0);
+        Animator.SetInteger("Direction", 0);
         break;
       case KeyCode.DownArrow:
-        bunnyAnimator.SetInteger("Direction", 1);
+        Animator.SetInteger("Direction", 1);
         break;
       case KeyCode.LeftArrow:
-        bunnyAnimator.SetInteger("Direction", 2);
+        Animator.SetInteger("Direction", 2);
         break;
       case KeyCode.RightArrow:
-        bunnyAnimator.SetInteger("Direction", 3);
+        Animator.SetInteger("Direction", 3);
         break;
       default:
         break;
@@ -307,7 +307,7 @@ public class Player : MonoBehaviour
     {
       WalkLoop.Stop();
     }
-    bunnyAnimator.SetInteger("Direction", 4);
+    Animator.SetInteger("Direction", 4);
   }
 
   void SilentIdling()
@@ -320,7 +320,7 @@ public class Player : MonoBehaviour
     {
       WalkLoop.Stop();
     }
-    bunnyAnimator.SetInteger("Direction", 4);
+    Animator.SetInteger("Direction", 4);
   }
 
   void FadeOut(string fadeCompleteScene)

@@ -28,8 +28,12 @@ public class ScoreBox : MonoBehaviour
 
   public static void NextLevel(Map map)
   {
-    map.CurrentFloorsizeFactor = map.Level1FloorsizeFactor + (map.FloorsizeFactorIncreasePerLevel * Level);
-    map.CurrentNumberOfLeaves = map.Level1NumberOfLeaves + (map.LeafIncreasePerLevel * Level);
+    var floorSizeFactor = map.Level1FloorsizeFactor + (map.FloorsizeFactorIncreasePerLevel * Level);
+    var numLeaves = map.Level1NumberOfLeaves + (map.LeafIncreasePerLevel * Level);
+
+    map.CurrentFloorsizeFactor = floorSizeFactor;
+    map.CurrentNumberOfLeaves = numLeaves;
+    map.CurrentCarrots = Mathf.RoundToInt(Random.Range(numLeaves * 0.33f, numLeaves * 0.66f));
     Level++;
   }
 }
