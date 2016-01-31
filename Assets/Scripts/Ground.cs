@@ -64,7 +64,7 @@ public class BecomeDangerous : MonoBehaviour
 {
   public Ground Ground;
   float StartTime;
-  const float DangerTime = 1f;
+  const float DangerTime = 100f;
 
   void Start()
   {

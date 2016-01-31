@@ -10,11 +10,11 @@ public class Map : MonoBehaviour
   public GameObject RitualPointPrefab;
   public GameObject PlayerPrefab;
 
-  const int minCorridorWidth = 4;
-  const int floorsizeFactor = 20;
+  const int corridorWidth = 4;
+  const int floorsizeFactor = 40;
   const int numberOfRituals = 4;
 
-  public const float CameraZ = -25f;
+  const float CameraZ = -25f;
   public const float TileSize = 3f;
 
   const int Height = floorsizeFactor;
@@ -22,8 +22,9 @@ public class Map : MonoBehaviour
 
   void Start()
   {
-    List<String> validGround = new List<String>();
     Place(PlayerPrefab, (Width - 1) / 2, (Height - 1) / 2);
+
+    List<String> validGround = new List<String>();
 
     for (int y = 0; y < Height; y++)
     {
@@ -62,6 +63,10 @@ public class Map : MonoBehaviour
       {
         Place(RitualPointPrefab, x, y);
       }
+      else
+      {
+        i--;
+      }
     }
 
   }
@@ -77,12 +82,12 @@ public class Map : MonoBehaviour
     int yDist = Math.Abs(y - (Height - 1) / 2);
     int totalDist = xDist + yDist;
 
-    //return totalDist == 8;
-    return ((totalDist + UnityEngine.Random.Range(1, 8)) % 8 == 0);
+
+    return ((totalDist + UnityEngine.Random.Range(1, 8)) % (12 + corridorWidth) == 0 || totalDist >= Math.Floor(.5 * floorsizeFactor + UnityEngine.Random.Range(0, 2)) - 2);
   }
 
   static Vector3 GetPos(int x, int y)
   {
-    return new Vector3(x * TileSize - (TileSize / 2f), y * TileSize - (TileSize / 2f), 0f);
+    return new Vector3(x * TileSize, y * TileSize, 0f);
   }
 }
