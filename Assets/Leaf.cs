@@ -10,7 +10,7 @@ public class Leaf : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
-    if (other.tag != "Player" || Activated) { return; }
+    if (other.tag != "Player") { return; }
     other.gameObject.GetComponent<Player>().Hop(this);
   }
 
@@ -19,8 +19,11 @@ public class Leaf : MonoBehaviour
     if (other.tag != "Player") { return; }
     other.gameObject.GetComponent<Player>().Unhop(this);
 
-    Activated = true;
-    SpriteRenderer.sprite = ActivatedSprite;
+    if (!Activated)
+    {
+      Activated = true;
+      SpriteRenderer.sprite = ActivatedSprite;
+    }
   }
 
 }
