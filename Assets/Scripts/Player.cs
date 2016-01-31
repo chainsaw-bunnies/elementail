@@ -6,11 +6,12 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-  private Animator Animator;
+  public Animator Animator;
   public CharacterController CharacterController;
   public Image Fade;
   public Map Map;
   public GameObject PortalPrefab;
+  public Renderer Renderer;
 
   [Header("Sounds")]
   public AudioSource AttackShort;
@@ -36,7 +37,6 @@ public class Player : MonoBehaviour
 
   void Start()
   {
-    Animator = GetComponent<Animator>();
     CurrentGrounds = new HashSet<Ground>();
     CurrentKey = KeyCode.None;
     NextKey = KeyCode.None;
@@ -254,6 +254,8 @@ public class Player : MonoBehaviour
       Speed += Map.PlayerSpeedIncreasePerLeaf;
     }
 
+    Renderer.transform.localPosition = new Vector3(0f, 2f, 0f);
+
     AttackShort.Play();
     Hopping = true;
   }
@@ -262,7 +264,9 @@ public class Player : MonoBehaviour
   {
     Impact.Play();
     Hopping = false;
+    Renderer.transform.localPosition = Vector3.zero;
   }
+
 
   #endregion
 
