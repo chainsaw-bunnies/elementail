@@ -3,14 +3,24 @@ using System.Collections;
 
 public class Wall : MonoBehaviour
 {
-  public Sprite[] WallSprites;
+  public Sprite OutermostWallSprite;
+  public Sprite[] RegularWallSprites;
 
   public SpriteRenderer GroundRenderer;
   public SpriteRenderer WallRendererer;
 
+  [HideInInspector]
+  public bool IsOutermostWall;
 
   void Start ()
   {
-    WallRendererer.sprite = WallSprites[UnityEngine.Random.Range(0, WallSprites.Length)];
+    if (IsOutermostWall)
+    {
+      WallRendererer.sprite = OutermostWallSprite;
+    }
+    else
+    {
+      WallRendererer.sprite = RegularWallSprites[UnityEngine.Random.Range(0, RegularWallSprites.Length)];
+    }
   }
 }

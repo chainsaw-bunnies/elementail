@@ -31,7 +31,13 @@ public class Map : MonoBehaviour
       for (int x = 0; x < Width; x++)
       {
         var coord = x.ToString() + "|" + y.ToString();
-        if (IsEdge(x, y))
+        if (IsGoodSpotForMapBoundary(x, y))
+        {
+          // Place where there must be walls.
+          Tiles[coord] = Place(WallPrefab, x, y);
+          Tiles[coord].GetComponent<Wall>().IsOutermostWall = true;
+        }
+        else if (IsGoodSpotForObstacle(x, y))
         {
           // Places where there must be walls.
           Tiles[coord] = Place(WallPrefab, x, y);
@@ -44,7 +50,6 @@ public class Map : MonoBehaviour
       }
     }
     var allCoords = new List<string>(Tiles.Keys);
-
     for (int i = 0; i < NumberOfLeaves; i++)
     {
       int index = UnityEngine.Random.Range(0, allCoords.Count - 1);
@@ -62,8 +67,7 @@ public class Map : MonoBehaviour
       adjacentCoords.Add(x.ToString() + "|" + ((int)(y + 1)).ToString());
       adjacentCoords.Add(x.ToString() + "|" + ((int)(y - 1)).ToString());
 
-
-      if (Tiles[adjacentCoords[0]] == null && Tiles[adjacentCoords[1]] == null && Tiles[adjacentCoords[2]] == null && Tiles[adjacentCoords[3]] == null)
+      if (IsEmptyAndAvailable(adjacentCoords[0]) && IsEmptyAndAvailable(adjacentCoords[1]) && IsEmptyAndAvailable(adjacentCoords[2]) && IsEmptyAndAvailable(adjacentCoords[3]))
       {
         Tiles[toSplit] = Place(LeafPrefab, x, y);
       }
@@ -95,11 +99,26 @@ public class Map : MonoBehaviour
     return (GameObject)GameObject.Instantiate(prefab, new Vector3(x * TileSize, y * TileSize, 0f), Quaternion.identity);
   }
 
-  bool IsEdge(int x, int y)
+  bool IsGoodSpotForMapBoundary(int x, int y)
   {
     int xDist = Math.Abs(x - (Width - 1) / 2);
     int yDist = Math.Abs(y - (Height - 1) / 2);
     int totalDist = xDist + yDist;
-    return ((totalDist + UnityEngine.Random.Range(1, 8)) % (12 + CorridorWidth) == 0 || totalDist >= Math.Floor(.5 * FloorsizeFactor + UnityEngine.Random.Range(0, 2)) - 2);
+    return totalDist >= Math.Floor(.5 * FloorsizeFactor + UnityEngine.Random.Range(0, 2)) - 2;
+  }
+
+  bool IsGoodSpotForObstacle(int x, int y)
+  {
+    int xDist = Math.Abs(x - (Width - 1) / 2);
+    int yDist = Math.Abs(y - (Height - 1) / 2);
+    int totalDist = xDist + yDist;
+    return (totalDist + UnityEngine.Random.Range(1, 8)) % (12 + CorridorWidth) == 0;
+
+  }
+
+  bool IsEmptyAndAvailable(string coord)
+  {
+    return Tiles.ContainsKey(coord) && Tiles[coord] == null;
   }
 }
+
