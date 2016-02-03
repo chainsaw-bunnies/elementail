@@ -8,6 +8,6 @@ public class FinalScoreBox : MonoBehaviour
 	
 	void Update ()
     {
-        Text.text = "Final Score: " + ScoreBox.Score;
+        Text.text = "Final Score: " + ScoreBox.Score.ToString("N0");
     }
 }
