@@ -15,7 +15,7 @@ public class ScoreBox : MonoBehaviour
   {
     string levelText = "Level " + Level; 
     string leavesText = "Rituals: " + (LeavesRemaining == 0 ? "Done" : LeavesRemaining.ToString());
-    string scoreText = "Points: " + (Score > 1000000 ? "Wow." : Score.ToString("N0"));
+    string scoreText = "Score: " + (Score > 1000000 ? "Wow." : Score.ToString("N0"));
 
     Text.text = string.Join("\r\n", new[] { levelText, leavesText, scoreText });
   }
