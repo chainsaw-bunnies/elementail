@@ -284,20 +284,24 @@ public class Player : MonoBehaviour
     // Update the direction the sprite is facing.
     switch (CurrentKey)
     {
-      case KeyCode.UpArrow:
-        Animator.SetInteger("Direction", 0);
-        break;
-      case KeyCode.DownArrow:
-        Animator.SetInteger("Direction", 1);
-        break;
-      case KeyCode.LeftArrow:
-        Animator.SetInteger("Direction", 2);
-        break;
-      case KeyCode.RightArrow:
-        Animator.SetInteger("Direction", 3);
-        break;
-      default:
-        break;
+		case KeyCode.UpArrow:
+			Animator.SetInteger ("Direction", 0);
+			Animator.Play ("BunnyUp");
+        	break;
+		case KeyCode.DownArrow:
+			Animator.SetInteger("Direction", 1);
+			Animator.Play ("BunnyDown");
+			break;
+		case KeyCode.LeftArrow:
+			Animator.SetInteger("Direction", 2);
+			Animator.Play ("BunnyLeft");
+			break;
+		case KeyCode.RightArrow:
+			Animator.SetInteger("Direction", 3);
+			Animator.Play ("BunnyRight");
+			break;
+		default:
+			break;
     }
   }
 
@@ -312,6 +316,7 @@ public class Player : MonoBehaviour
       WalkLoop.Stop();
     }
     Animator.SetInteger("Direction", 4);
+		Animator.Play ("Idle");
   }
 
   void SilentIdling()
@@ -325,6 +330,8 @@ public class Player : MonoBehaviour
       WalkLoop.Stop();
     }
     Animator.SetInteger("Direction", 4);
+	Animator.Play("Idle");
+
   }
 
   void FadeOut(string fadeCompleteScene)
