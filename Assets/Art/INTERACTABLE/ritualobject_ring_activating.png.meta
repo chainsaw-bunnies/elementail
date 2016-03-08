@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 69dac8dd97744d34d993938b4e00f415
+timeCreated: 1457411486
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ritualobject_ring_activating_0
+    21300002: ritualobject_ring_activating_1
+    21300004: ritualobject_ring_activating_2
+    21300006: ritualobject_ring_activating_3
+    21300008: ritualobject_ring_activating_4
+    21300010: ritualobject_ring_activating_5
+    21300012: ritualobject_ring_activating_6
+    21300014: ritualobject_ring_activating_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ritualobject_ring_activating_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42, y: -80}
+        - {x: -56, y: -87}
+        - {x: -56, y: -103}
+        - {x: -10, y: -110}
+        - {x: 43, y: -110}
+        - {x: 69, y: -108}
+        - {x: 74, y: -104}
+        - {x: 74, y: -93}
+        - {x: 50, y: -80}
+      - - {x: -74, y: -48}
+        - {x: -64, y: -60}
+        - {x: 76, y: -60}
+        - {x: 81, y: -59}
+        - {x: 81, y: 45}
+        - {x: 65, y: 81}
+        - {x: -45, y: 81}
+        - {x: -74, y: 27}
+    - name: ritualobject_ring_activating_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: -110}
+        - {x: 67, y: -110}
+        - {x: 71, y: -109}
+        - {x: 71, y: -84}
+        - {x: 69, y: -80}
+        - {x: -59, y: -80}
+        - {x: -59, y: -103}
+      - - {x: -16, y: 101}
+        - {x: -92, y: 2}
+        - {x: -92, y: -74}
+        - {x: -66, y: -80}
+        - {x: 88, y: -80}
+        - {x: 88, y: 58}
+        - {x: 74, y: 101}
+    - name: ritualobject_ring_activating_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: -59}
+        - {x: -20, y: -69}
+        - {x: -19, y: -76}
+        - {x: -15, y: -80}
+        - {x: -13, y: -80}
+        - {x: -9, y: -77}
+        - {x: -4, y: -80}
+        - {x: -29, y: -80}
+        - {x: -40, y: -78}
+        - {x: -65, y: -87}
+        - {x: -65, y: -105}
+        - {x: -59, y: -116}
+        - {x: 76, y: -116}
+        - {x: 76, y: -85}
+        - {x: 44, y: -59}
+      - - {x: -27, y: 118}
+        - {x: -82, y: 98}
+        - {x: -82, y: 55}
+        - {x: -70, y: 42}
+        - {x: -106, y: 8}
+        - {x: -108, y: -2}
+        - {x: -108, y: -59}
+        - {x: -76, y: -85}
+        - {x: 80, y: -85}
+        - {x: 98, y: -69}
+        - {x: 98, y: 6}
+        - {x: 52, y: 118}
+      - - {x: 80, y: 40}
+        - {x: 74, y: 33}
+        - {x: 72, y: 28}
+        - {x: 76, y: 23}
+        - {x: 82, y: 23}
+        - {x: 94, y: 31}
+        - {x: 94, y: 39}
+        - {x: 92, y: 40}
+      - - {x: 77, y: 54}
+        - {x: 66, y: 40}
+        - {x: 66, y: 33}
+        - {x: 70, y: 32}
+        - {x: 77, y: 32}
+        - {x: 89, y: 46}
+        - {x: 89, y: 54}
+    - name: ritualobject_ring_activating_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97, y: 2}
+        - {x: 79, y: 108}
+        - {x: 72, y: 124}
+        - {x: -19, y: 124}
+        - {x: -110, y: 55}
+        - {x: -110, y: -75}
+        - {x: -96, y: -90}
+        - {x: -59, y: -87}
+        - {x: -48, y: -83}
+        - {x: -47, y: -82}
+        - {x: -44, y: -82}
+        - {x: -30, y: -77}
+        - {x: -13, y: -66}
+        - {x: -27, y: -80}
+        - {x: -40, y: -81}
+        - {x: -41, y: -82}
+        - {x: -44, y: -82}
+        - {x: -55, y: -86}
+        - {x: -63, y: -92}
+        - {x: -61, y: -105}
+        - {x: -41, y: -109}
+        - {x: 4, y: -110}
+        - {x: 65, y: -110}
+        - {x: 88, y: -108}
+        - {x: 113, y: -70}
+        - {x: 113, y: -32}
+      - - {x: 111, y: 41}
+        - {x: 100, y: 38}
+        - {x: 82, y: 22}
+        - {x: 82, y: 13}
+        - {x: 83, y: 10}
+        - {x: 92, y: 10}
+        - {x: 99, y: 12}
+        - {x: 121, y: 32}
+        - {x: 121, y: 38}
+        - {x: 120, y: 41}
+      - - {x: 108, y: 62}
+        - {x: 100, y: 62}
+        - {x: 98, y: 61}
+        - {x: 72, y: 31}
+        - {x: 72, y: 22}
+        - {x: 76, y: 20}
+        - {x: 84, y: 20}
+        - {x: 110, y: 52}
+        - {x: 111, y: 55}
+        - {x: 111, y: 61}
+      - - {x: -66, y: 74}
+        - {x: -68, y: 70}
+        - {x: -68, y: 65}
+        - {x: -73, y: 65}
+        - {x: -83, y: 61}
+        - {x: -83, y: 55}
+        - {x: -73, y: 44}
+        - {x: -65, y: 38}
+        - {x: -45, y: 38}
+        - {x: -35, y: 41}
+        - {x: -35, y: 48}
+        - {x: -39, y: 54}
+        - {x: -56, y: 71}
+        - {x: -62, y: 74}
+    - name: ritualobject_ring_activating_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 44, y: 124}
+        - {x: 35, y: 128}
+        - {x: -26, y: 128}
+        - {x: -119, y: 3}
+        - {x: -119, y: -77}
+        - {x: -99, y: -114}
+        - {x: -59, y: -118}
+        - {x: 50, y: -118}
+        - {x: 83, y: -113}
+        - {x: 113, y: -100}
+        - {x: 113, y: 9}
+        - {x: 99, y: 71}
+      - - {x: 112, y: 45}
+        - {x: 103, y: 43}
+        - {x: 71, y: 26}
+        - {x: 71, y: 16}
+        - {x: 99, y: 16}
+        - {x: 122, y: 36}
+        - {x: 122, y: 45}
+      - - {x: -104, y: 66}
+        - {x: -120, y: 66}
+        - {x: -120, y: 53}
+        - {x: -88, y: 39}
+        - {x: -70, y: 35}
+        - {x: -60, y: 35}
+        - {x: -59, y: 38}
+        - {x: -59, y: 45}
+        - {x: -65, y: 52}
+      - - {x: -95, y: 78}
+        - {x: -95, y: 64}
+        - {x: -78, y: 46}
+        - {x: -58, y: 46}
+        - {x: -56, y: 47}
+        - {x: -56, y: 61}
+        - {x: -81, y: 78}
+    - name: ritualobject_ring_activating_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 112, y: -18}
+        - {x: 43, y: 128}
+        - {x: -25, y: 128}
+        - {x: -56, y: 81}
+        - {x: -128, y: 3}
+        - {x: -128, y: -111}
+        - {x: -50, y: -128}
+        - {x: 65, y: -128}
+        - {x: 93, y: -125}
+        - {x: 112, y: -90}
+      - - {x: -82, y: 85}
+        - {x: -87, y: 85}
+        - {x: -90, y: 82}
+        - {x: -89, y: 71}
+        - {x: -112, y: 69}
+        - {x: -114, y: 65}
+        - {x: -114, y: 62}
+        - {x: -110, y: 57}
+        - {x: -74, y: 30}
+        - {x: -63, y: 30}
+        - {x: -59, y: 34}
+        - {x: -59, y: 47}
+        - {x: -78, y: 83}
+      - - {x: 123, y: 105}
+        - {x: 110, y: 105}
+        - {x: 100, y: 99}
+        - {x: 57, y: 53}
+        - {x: 53, y: 43}
+        - {x: 53, y: 34}
+        - {x: 63, y: 31}
+        - {x: 78, y: 31}
+        - {x: 105, y: 51}
+        - {x: 100, y: 60}
+        - {x: 123, y: 89}
+    - name: ritualobject_ring_activating_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55, y: -8}
+        - {x: -126, y: -39}
+        - {x: -126, y: -111}
+        - {x: -123, y: -114}
+        - {x: -57, y: -119}
+        - {x: 113, y: -119}
+        - {x: 113, y: -8}
+      - - {x: -36, y: -65}
+        - {x: -42, y: -72}
+        - {x: -42, y: -81}
+        - {x: -41, y: -85}
+        - {x: -25, y: -85}
+        - {x: -22, y: -84}
+        - {x: -22, y: -72}
+        - {x: -25, y: -65}
+      - - {x: -5, y: -57}
+        - {x: -17, y: -57}
+        - {x: -19, y: -60}
+        - {x: -19, y: -74}
+        - {x: -18, y: -78}
+        - {x: -4, y: -78}
+        - {x: 1, y: -74}
+        - {x: 1, y: -60}
+      - - {x: -99, y: 31}
+        - {x: -111, y: 11}
+        - {x: -113, y: 8}
+        - {x: -113, y: -44}
+        - {x: -95, y: -67}
+        - {x: -27, y: -67}
+        - {x: -15, y: -50}
+        - {x: -15, y: 27}
+        - {x: -23, y: 31}
+      - - {x: 49, y: 18}
+        - {x: 42, y: 18}
+        - {x: 35, y: 14}
+        - {x: 35, y: 1}
+        - {x: 36, y: -2}
+        - {x: 53, y: -2}
+        - {x: 55, y: 4}
+        - {x: 55, y: 14}
+        - {x: 54, y: 15}
+      - - {x: 75, y: 23}
+        - {x: 73, y: 14}
+        - {x: 73, y: 1}
+        - {x: 91, y: 1}
+        - {x: 95, y: 8}
+        - {x: 95, y: 19}
+        - {x: 93, y: 23}
+      - - {x: -8, y: 118}
+        - {x: -33, y: 102}
+        - {x: -33, y: 35}
+        - {x: -10, y: 21}
+        - {x: 32, y: 21}
+        - {x: 49, y: 25}
+        - {x: 65, y: 36}
+        - {x: 65, y: 95}
+        - {x: 56, y: 118}
+      - - {x: 66, y: 53}
+        - {x: 62, y: 50}
+        - {x: 62, y: 27}
+        - {x: 64, y: 21}
+        - {x: 82, y: 21}
+        - {x: 83, y: 25}
+        - {x: 83, y: 49}
+        - {x: 78, y: 53}
+      - - {x: -74, y: 60}
+        - {x: -77, y: 59}
+        - {x: -77, y: 47}
+        - {x: -71, y: 42}
+        - {x: -61, y: 42}
+        - {x: -56, y: 43}
+        - {x: -56, y: 54}
+        - {x: -62, y: 60}
+      - - {x: -75, y: 82}
+        - {x: -82, y: 82}
+        - {x: -89, y: 74}
+        - {x: -89, y: 67}
+        - {x: -87, y: 60}
+        - {x: -73, y: 60}
+        - {x: -66, y: 66}
+        - {x: -66, y: 74}
+        - {x: -72, y: 81}
+      - - {x: -56, y: 97}
+        - {x: -59, y: 89}
+        - {x: -59, y: 81}
+        - {x: -55, y: 77}
+        - {x: -44, y: 77}
+        - {x: -39, y: 82}
+        - {x: -39, y: 95}
+        - {x: -43, y: 97}
+    - name: ritualobject_ring_activating_7
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -54, y: 0}
+        - {x: -123, y: -24}
+        - {x: -123, y: -113}
+        - {x: -80, y: -119}
+        - {x: 113, y: -119}
+        - {x: 120, y: -113}
+        - {x: 128, y: -73}
+        - {x: 128, y: 0}
+      - - {x: 0, y: -70}
+        - {x: -8, y: -64}
+        - {x: -14, y: -64}
+        - {x: -23, y: -68}
+        - {x: -23, y: -82}
+        - {x: -22, y: -87}
+        - {x: -8, y: -87}
+        - {x: -1, y: -80}
+        - {x: 0, y: -77}
+      - - {x: 16, y: -53}
+        - {x: 11, y: -53}
+        - {x: 6, y: -56}
+        - {x: 5, y: -62}
+        - {x: 5, y: -68}
+        - {x: 10, y: -71}
+        - {x: 16, y: -71}
+        - {x: 21, y: -64}
+        - {x: 21, y: -58}
+      - - {x: -29, y: -53}
+        - {x: -38, y: -53}
+        - {x: -43, y: -59}
+        - {x: -43, y: -68}
+        - {x: -39, y: -69}
+        - {x: -28, y: -69}
+        - {x: -25, y: -65}
+        - {x: -25, y: -58}
+      - - {x: -126, y: -38}
+        - {x: -124, y: -45}
+        - {x: -109, y: -60}
+        - {x: -28, y: -60}
+        - {x: -28, y: 26}
+        - {x: -31, y: 37}
+        - {x: -106, y: 37}
+        - {x: -126, y: 15}
+      - - {x: 89, y: 37}
+        - {x: 77, y: 37}
+        - {x: 75, y: 33}
+        - {x: 75, y: 22}
+        - {x: 79, y: 21}
+        - {x: 90, y: 21}
+        - {x: 92, y: 24}
+        - {x: 93, y: 25}
+        - {x: 93, y: 35}
+      - - {x: -23, y: 124}
+        - {x: -43, y: 103}
+        - {x: -43, y: 44}
+        - {x: -38, y: 26}
+        - {x: 49, y: 26}
+        - {x: 53, y: 27}
+        - {x: 54, y: 32}
+        - {x: 54, y: 112}
+        - {x: 28, y: 124}
+      - - {x: -107, y: 62}
+        - {x: -116, y: 62}
+        - {x: -122, y: 53}
+        - {x: -122, y: 46}
+        - {x: -118, y: 45}
+        - {x: -106, y: 45}
+        - {x: -103, y: 49}
+        - {x: -103, y: 61}
+      - - {x: 98, y: 82}
+        - {x: 91, y: 76}
+        - {x: 90, y: 73}
+        - {x: 90, y: 66}
+        - {x: 95, y: 61}
+        - {x: 107, y: 61}
+        - {x: 111, y: 69}
+        - {x: 111, y: 81}
+        - {x: 109, y: 82}
+      - - {x: -112, y: 100}
+        - {x: -122, y: 100}
+        - {x: -124, y: 98}
+        - {x: -124, y: 89}
+        - {x: -122, y: 84}
+        - {x: -113, y: 84}
+        - {x: -109, y: 89}
+        - {x: -109, y: 99}
+      - - {x: -104, y: 112}
+        - {x: -106, y: 110}
+        - {x: -106, y: 100}
+        - {x: -105, y: 96}
+        - {x: -94, y: 96}
+        - {x: -91, y: 99}
+        - {x: -91, y: 111}
+        - {x: -94, y: 112}
+      - - {x: 79, y: 113}
+        - {x: 74, y: 108}
+        - {x: 74, y: 101}
+        - {x: 78, y: 97}
+        - {x: 87, y: 97}
+        - {x: 90, y: 101}
+        - {x: 90, y: 111}
+        - {x: 85, y: 113}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,341 @@
+fileFormatVersion: 2
+guid: 9e021e9393e23a64aa2d7e09b6133914
+timeCreated: 1457411430
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ACTIVATEDritualobject_ring_idle_0
+    21300002: ACTIVATEDritualobject_ring_idle_1
+    21300004: ACTIVATEDritualobject_ring_idle_2
+    21300006: ACTIVATEDritualobject_ring_idle_3
+    21300008: ACTIVATEDritualobject_ring_idle_4
+    21300010: ACTIVATEDritualobject_ring_idle_5
+    21300012: ACTIVATEDritualobject_ring_idle_6
+    21300014: ACTIVATEDritualobject_ring_idle_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ACTIVATEDritualobject_ring_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 39, y: 2}
+        - {x: 26, y: -20}
+        - {x: 21, y: -66}
+        - {x: -128, y: -84}
+        - {x: -128, y: -109}
+        - {x: -119, y: -117}
+        - {x: 122, y: -117}
+        - {x: 123, y: -103}
+        - {x: 123, y: -19}
+        - {x: 108, y: 2}
+      - - {x: -118, y: 40}
+        - {x: -128, y: 32}
+        - {x: -128, y: -45}
+        - {x: -124, y: -58}
+        - {x: -59, y: -58}
+        - {x: -34, y: -42}
+        - {x: -34, y: 22}
+        - {x: -52, y: 40}
+      - - {x: -35, y: 126}
+        - {x: -49, y: 116}
+        - {x: -49, y: 48}
+        - {x: -39, y: 28}
+        - {x: 26, y: 28}
+        - {x: 49, y: 49}
+        - {x: 49, y: 111}
+        - {x: 42, y: 126}
+    - name: ACTIVATEDritualobject_ring_idle_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 2}
+        - {x: -126, y: -78}
+        - {x: -126, y: -107}
+        - {x: -110, y: -117}
+        - {x: 109, y: -117}
+        - {x: 111, y: -114}
+        - {x: 111, y: -61}
+        - {x: 92, y: 2}
+      - - {x: -120, y: 31}
+        - {x: -128, y: 8}
+        - {x: -128, y: -49}
+        - {x: -117, y: -66}
+        - {x: -108, y: -67}
+        - {x: -48, y: -67}
+        - {x: -31, y: -55}
+        - {x: -31, y: 12}
+        - {x: -37, y: 31}
+      - - {x: -24, y: 117}
+        - {x: -26, y: 116}
+        - {x: -47, y: 89}
+        - {x: -47, y: 50}
+        - {x: -44, y: 38}
+        - {x: -27, y: 19}
+        - {x: 27, y: 19}
+        - {x: 39, y: 21}
+        - {x: 51, y: 46}
+        - {x: 51, y: 96}
+        - {x: 32, y: 117}
+    - name: ACTIVATEDritualobject_ring_idle_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 96}
+        - {x: -35, y: 95}
+        - {x: -82, y: 32}
+        - {x: -126, y: -91}
+        - {x: -126, y: -105}
+        - {x: -111, y: -115}
+        - {x: 111, y: -115}
+        - {x: 111, y: -18}
+        - {x: 57, y: 96}
+      - - {x: -100, y: 15}
+        - {x: -124, y: 8}
+        - {x: -124, y: -71}
+        - {x: -105, y: -83}
+        - {x: -46, y: -83}
+        - {x: -26, y: -77}
+        - {x: -26, y: 6}
+        - {x: -37, y: 15}
+    - name: ACTIVATEDritualobject_ring_idle_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -99, y: -71}
+        - {x: -28, y: -84}
+        - {x: -97, y: -88}
+        - {x: -121, y: -90}
+        - {x: -126, y: -95}
+        - {x: -126, y: -111}
+        - {x: -96, y: -117}
+        - {x: 111, y: -117}
+        - {x: 111, y: -55}
+        - {x: 77, y: 99}
+        - {x: -36, y: 99}
+        - {x: -124, y: 15}
+    - name: ACTIVATEDritualobject_ring_idle_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 35}
+        - {x: -85, y: 13}
+        - {x: -126, y: -81}
+        - {x: -126, y: -113}
+        - {x: -98, y: -117}
+        - {x: 108, y: -117}
+        - {x: 125, y: -82}
+        - {x: 125, y: -6}
+        - {x: 46, y: 35}
+      - - {x: 17, y: 106}
+        - {x: 17, y: 17}
+        - {x: 34, y: 8}
+        - {x: 102, y: 8}
+        - {x: 115, y: 22}
+        - {x: 115, y: 103}
+        - {x: 106, y: 106}
+    - name: ACTIVATEDritualobject_ring_idle_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 98, y: -91}
+        - {x: 31, y: -87}
+        - {x: -123, y: -87}
+        - {x: -126, y: -94}
+        - {x: -126, y: -107}
+        - {x: -110, y: -117}
+        - {x: 109, y: -117}
+        - {x: 111, y: -112}
+        - {x: 111, y: -105}
+        - {x: 109, y: -99}
+      - - {x: 110, y: 37}
+        - {x: 40, y: 37}
+        - {x: 27, y: 34}
+        - {x: 27, y: -51}
+        - {x: 56, y: -60}
+        - {x: 115, y: -60}
+        - {x: 125, y: -37}
+        - {x: 125, y: 20}
+      - - {x: -1, y: 126}
+        - {x: -86, y: 46}
+        - {x: -86, y: -42}
+        - {x: 47, y: -42}
+        - {x: 78, y: 31}
+        - {x: 78, y: 126}
+    - name: ACTIVATEDritualobject_ring_idle_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 98, y: -91}
+        - {x: 31, y: -87}
+        - {x: -123, y: -87}
+        - {x: -126, y: -94}
+        - {x: -126, y: -107}
+        - {x: -110, y: -117}
+        - {x: 109, y: -117}
+        - {x: 111, y: -112}
+        - {x: 111, y: -105}
+        - {x: 109, y: -99}
+      - - {x: 106, y: 17}
+        - {x: 89, y: 19}
+        - {x: 57, y: 19}
+        - {x: 39, y: 7}
+        - {x: 27, y: -9}
+        - {x: 27, y: -45}
+        - {x: 33, y: -77}
+        - {x: 39, y: -78}
+        - {x: 104, y: -78}
+        - {x: 123, y: -61}
+        - {x: 125, y: -46}
+        - {x: 125, y: -8}
+      - - {x: -81, y: 49}
+        - {x: -100, y: 46}
+        - {x: -106, y: 25}
+        - {x: -106, y: -26}
+        - {x: -91, y: -46}
+        - {x: -72, y: -49}
+        - {x: -37, y: -49}
+        - {x: -8, y: -26}
+        - {x: -8, y: 27}
+        - {x: -31, y: 49}
+      - - {x: -21, y: 126}
+        - {x: -32, y: 118}
+        - {x: -32, y: 48}
+        - {x: -17, y: 28}
+        - {x: 40, y: 28}
+        - {x: 66, y: 37}
+        - {x: 66, y: 110}
+        - {x: 55, y: 126}
+    - name: ACTIVATEDritualobject_ring_idle_7
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 0}
+        - {x: 18, y: -35}
+        - {x: -127, y: -96}
+        - {x: -127, y: -105}
+        - {x: -116, y: -119}
+        - {x: 115, y: -119}
+        - {x: 124, y: -92}
+        - {x: 124, y: 0}
+      - - {x: -112, y: 37}
+        - {x: -128, y: 21}
+        - {x: -128, y: -37}
+        - {x: -123, y: -56}
+        - {x: -98, y: -60}
+        - {x: -44, y: -60}
+        - {x: -33, y: -37}
+        - {x: -33, y: 33}
+        - {x: -47, y: 37}
+      - - {x: -40, y: 124}
+        - {x: -48, y: 117}
+        - {x: -48, y: 50}
+        - {x: -37, y: 26}
+        - {x: 36, y: 26}
+        - {x: 50, y: 33}
+        - {x: 50, y: 121}
+        - {x: 37, y: 124}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

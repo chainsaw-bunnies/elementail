@@ -1,0 +1,297 @@
+fileFormatVersion: 2
+guid: 9a72876858d814b47957d19d8b0d6ec1
+timeCreated: 1457411499
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ritualobject_ring_idle_0
+    21300002: ritualobject_ring_idle_1
+    21300004: ritualobject_ring_idle_2
+    21300006: ritualobject_ring_idle_3
+    21300008: ritualobject_ring_idle_4
+    21300010: ritualobject_ring_idle_5
+    21300012: ritualobject_ring_idle_6
+    21300014: ritualobject_ring_idle_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ritualobject_ring_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 61, y: -71}
+        - {x: 24, y: -62}
+        - {x: -45, y: -62}
+        - {x: -59, y: -63}
+        - {x: -66, y: -67}
+        - {x: -66, y: -79}
+        - {x: -64, y: -86}
+        - {x: -50, y: -90}
+        - {x: -9, y: -92}
+        - {x: 36, y: -92}
+        - {x: 58, y: -88}
+        - {x: 63, y: -87}
+        - {x: 63, y: -77}
+      - - {x: -29, y: 99}
+        - {x: -84, y: 56}
+        - {x: -84, y: -28}
+        - {x: -61, y: -43}
+        - {x: 43, y: -43}
+        - {x: 71, y: -23}
+        - {x: 71, y: 46}
+        - {x: 35, y: 99}
+    - name: ritualobject_ring_idle_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -60, y: -62}
+        - {x: -66, y: -68}
+        - {x: -66, y: -82}
+        - {x: -44, y: -92}
+        - {x: 64, y: -92}
+        - {x: 64, y: -67}
+        - {x: 40, y: -62}
+      - - {x: -38, y: 102}
+        - {x: -83, y: 53}
+        - {x: -83, y: -38}
+        - {x: -78, y: -39}
+        - {x: 70, y: -39}
+        - {x: 72, y: -35}
+        - {x: 72, y: 37}
+        - {x: 38, y: 102}
+    - name: ritualobject_ring_idle_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: -62}
+        - {x: -60, y: -62}
+        - {x: -62, y: -67}
+        - {x: -62, y: -84}
+        - {x: -56, y: -86}
+        - {x: -33, y: -89}
+        - {x: -25, y: -92}
+        - {x: 62, y: -92}
+        - {x: 64, y: -91}
+        - {x: 64, y: -68}
+        - {x: 58, y: -66}
+      - - {x: 27, y: 109}
+        - {x: 23, y: 111}
+        - {x: -36, y: 111}
+        - {x: -83, y: 59}
+        - {x: -83, y: -18}
+        - {x: -60, y: -31}
+        - {x: 41, y: -31}
+        - {x: 52, y: -28}
+        - {x: 72, y: -21}
+        - {x: 72, y: 63}
+    - name: ritualobject_ring_idle_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42, y: -71}
+        - {x: 17, y: -62}
+        - {x: -40, y: -62}
+        - {x: -49, y: -68}
+        - {x: -49, y: -80}
+        - {x: -47, y: -85}
+        - {x: -33, y: -90}
+        - {x: -2, y: -92}
+        - {x: 23, y: -92}
+        - {x: 41, y: -88}
+        - {x: 44, y: -87}
+        - {x: 44, y: -77}
+      - - {x: 28, y: 118}
+        - {x: -29, y: 118}
+        - {x: -82, y: 66}
+        - {x: -82, y: -24}
+        - {x: 67, y: -24}
+        - {x: 73, y: -7}
+        - {x: 73, y: 68}
+        - {x: 33, y: 116}
+    - name: ritualobject_ring_idle_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36, y: -92}
+        - {x: 41, y: -92}
+        - {x: 43, y: -91}
+        - {x: 43, y: -70}
+        - {x: 41, y: -62}
+        - {x: -51, y: -62}
+        - {x: -51, y: -85}
+      - - {x: 47, y: 101}
+        - {x: 29, y: 126}
+        - {x: -32, y: 126}
+        - {x: -55, y: 120}
+        - {x: -83, y: 80}
+        - {x: -83, y: 9}
+        - {x: -70, y: -15}
+        - {x: 45, y: -15}
+        - {x: 69, y: 4}
+        - {x: 72, y: 22}
+        - {x: 72, y: 51}
+    - name: ritualobject_ring_idle_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: -62}
+        - {x: -67, y: -69}
+        - {x: -67, y: -83}
+        - {x: -49, y: -92}
+        - {x: 60, y: -92}
+        - {x: 63, y: -90}
+        - {x: 63, y: -74}
+        - {x: 41, y: -62}
+      - - {x: 30, y: 119}
+        - {x: -51, y: 119}
+        - {x: -85, y: 69}
+        - {x: -85, y: -21}
+        - {x: -84, y: -22}
+        - {x: 70, y: -22}
+        - {x: 70, y: 68}
+        - {x: 36, y: 115}
+    - name: ritualobject_ring_idle_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: -62}
+        - {x: -67, y: -69}
+        - {x: -67, y: -83}
+        - {x: -49, y: -92}
+        - {x: 60, y: -92}
+        - {x: 63, y: -90}
+        - {x: 63, y: -74}
+        - {x: 41, y: -62}
+      - - {x: 52, y: 107}
+        - {x: -63, y: 107}
+        - {x: -85, y: 50}
+        - {x: -85, y: -21}
+        - {x: -59, y: -34}
+        - {x: 48, y: -34}
+        - {x: 70, y: -14}
+        - {x: 70, y: 30}
+        - {x: 65, y: 41}
+    - name: ritualobject_ring_idle_7
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: -62}
+        - {x: -67, y: -69}
+        - {x: -67, y: -83}
+        - {x: -49, y: -92}
+        - {x: 60, y: -92}
+        - {x: 63, y: -90}
+        - {x: 63, y: -74}
+        - {x: 41, y: -62}
+      - - {x: -51, y: 99}
+        - {x: -85, y: 59}
+        - {x: -85, y: -38}
+        - {x: -82, y: -43}
+        - {x: 61, y: -43}
+        - {x: 70, y: -16}
+        - {x: 70, y: 55}
+        - {x: 25, y: 99}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
