@@ -43,6 +43,7 @@ public class Root : MonoBehaviour
     GameStatus.Level = GameStatus.LevelsCompleted;
     GameStatus.Root = this;
     GameStatus.RitualPointsRemaining = Level1RitualPointCount + RitualPointIncreasePerLevel * GameStatus.Level;
+    GameStatus.TileSetIndex = GameStatus.Level % TileSets.Length;
 
     var size = Level1Size + SizeIncreasePerLevel * GameStatus.Level;
     Tiles = new Tile[size, size];
