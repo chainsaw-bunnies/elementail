@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -16,7 +16,9 @@ public class LoadScene : MonoBehaviour
 
   public void ResetLevel()
   {
-    ScoreBox.ResetLevel();
+    GameStatus.Level = 0;
+    GameStatus.LevelsCompleted = 0;
+    GameStatus.Score = 0;
   }
 
   public void Quit()
