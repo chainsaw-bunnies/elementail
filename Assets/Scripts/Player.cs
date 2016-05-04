@@ -24,8 +24,8 @@ public class Player : MonoBehaviour
     HopDestination = Vector3.zero;
     IsHopping = false;
     IsHopPausing = false;
-    HopDuration = 0.25f;
-    HopPauseDuration = 0.05f;
+    HopDuration = GameStatus.Root.Level1HopDuration + GameStatus.Root.HopDurationIncreasePerLevel * GameStatus.Level;
+    HopPauseDuration = GameStatus.Root.HopPauseDuration;
 
     Animator.Play("IdleRight");
   }

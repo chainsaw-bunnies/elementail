@@ -10,15 +10,18 @@ public class Root : MonoBehaviour
   public Image Fade;
 
   [Header("Tuning")]
-  public int ClearTilesNearCenter = 3;
-  public int CorridorWidth = 4;
-  public float FractionOfDecoratedTiles = 0.05f;
-  public int Level1Size = 40;
-  public int SizeIncreasePerLevel = 2;
-  public int Level1RitualPointCount = 4;
-  public float PercentageOfSuperCarrots = 0.1f;
-  public int RitualPointIncreasePerLevel = 1;
-  public float RuneTimeUntilDangerous = 2.2f;
+  public int ClearTilesNearCenter;
+  public int CorridorWidth;
+  public float FractionOfDecoratedTiles;
+  public int Level1Size;
+  public int SizeIncreasePerLevel;
+  public int Level1RitualPointCount;
+  public float PercentageOfSuperCarrots;
+  public int RitualPointIncreasePerLevel;
+  public float RuneTimeUntilDangerous;
+  public float Level1HopDuration;
+  public float HopDurationIncreasePerLevel;
+  public float HopPauseDuration;
 
   [Header("Data")]
   public Pickup Carrot;
@@ -115,7 +118,7 @@ public class Root : MonoBehaviour
 
       // Don't return positions with an obstacle or pickup that is too close.
       var someTiles = new[] { tiles[x, y], tiles[x - 1, y], tiles[x + 1, y], tiles[x, y - 1], tiles[x, y + 1] };
-      if (someTiles.Any(t => t.IsObstacle || t.IsPickup))
+      if (someTiles.Any(t => t.IsObstacle || t.IsPickup || t.IsRitualPoint))
       {
         continue;
       }
@@ -177,10 +180,4 @@ public class Root : MonoBehaviour
     GameStatus.Root.Fade.color = new Color(0f, 0f, 0f, 0f);
     GameStatus.Root.Fade.DOFade(1f, 0.5f).SetUpdate(true).OnComplete(() => SceneManager.LoadScene(fadeCompleteScene));
   }
-
-  // ==========
-
-  [Header("Permanent Game Tuning")]
-  public float PlayerSpeedIncreasePerLeaf;
-  public float PlayerStartSpeed;
 }
