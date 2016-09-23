@@ -2,7 +2,7 @@
 
 ## Uploading Build to http://chainsaw-bunnies.github.io/
 * Download the elementail repository if you have not already.
-  * https://github.com/chainsaw-bunnies/elementail)
+  * https://github.com/chainsaw-bunnies/elementail
 * Download the chainsaw-bunnies.github.io repository if you have not already.
   *  https://github.com/chainsaw-bunnies/chainsaw-bunnies.github.io
 * Open the elementail project in Unity.
